@@ -1,0 +1,30 @@
+ion-toolbar {
+    --background: var(--ion-color-primary);
+    color: #ffffff;
+  }
+  
+  ion-button {
+    --background: #001f54;
+    --color: #ffffff;
+    border-radius: 8px;
+    margin-top: 10px;
+  }
+  
+  ion-button[color="warning"] {
+    --background: #FFB800;
+    --color: #000000;
+  }
+  
+  ion-card {
+    border-radius: 12px;
+    margin: 20px;
+  }
+  
+  ion-card-title {
+    font-weight: bold;
+  }
+  
+  ion-card-content ion-item {
+    margin-bottom: 15px;
+  }
+  

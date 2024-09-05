@@ -1,27 +1,50 @@
-#container {
-  text-align: center;
+ion-content {
+  --background: transparent;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
 
+.animated-background {
   position: absolute;
+  top: 0;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  bottom: 0;
+  background: linear-gradient(-45deg, #002855, #f7b500, #1e1e1e, #f4f5f8);
+  background-size: 400% 400%;
+  animation: gradient-animation 15s ease infinite;
+  z-index: -1;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+@keyframes gradient-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.content-container {
+  text-align: center;
+  z-index: 1;
 }
 
-#container a {
-  text-decoration: none;
+.app-name {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+.tellevo {
+  color: white;
+}
+
+.app {
+  color: #f7b500;
+}
+
+.register-btn {
+  --border-radius: 20px;
+  font-size: 1.2rem;
 }

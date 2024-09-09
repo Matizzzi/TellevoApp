@@ -1,17 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
+  <ion-toolbar class="toolbar">
+    <ion-title class="logo-container">
+      <img src="{{logo}}" alt="Duoc UC Logo" class="duoc-logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTheme()">
+        <ion-icon name="moon-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <div class="animated-background"></div>
-  
-  <div class="content-container">
-    <div class="app-name">
+
+  <div class="content-container" [ngClass]="{'light-content': !isDarkMode, 'dark-content': isDarkMode}">
+    <div class="app-name" [ngClass]="{'light-text': !isDarkMode, 'dark-text': isDarkMode}">
       <span class="tellevo">TeLlevo</span>
       <span class="app">App</span>
     </div>
 
-    <ion-button expand="block" color="warning" class="register-btn" routerLink="/registro">Registrarse</ion-button>
+    <ion-button expand="block" color="warning" class="register-btn" routerLink="/iniciarsesion">
+      COMENZAR
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
   </div>
 </ion-content>

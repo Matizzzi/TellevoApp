@@ -1,39 +1,63 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Inicio</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="notifications-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
+  <ion-toolbar>
+    <ion-title>Principal</ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
-  <ion-card>
-    <img src="assets/icon/duocmeli.png" alt="Imagen Duoc UC"/>
+  <!-- Tarjeta Viajes -->
+  <ion-card class="card" routerLink="/viajes">
+    <img src="assets/icon/viajar2.svg" alt="Viajes" />
+    <ion-card-content>
+      <h2>Viajes</h2>
+    </ion-card-content>
   </ion-card>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="car-sport-outline"></ion-icon>
-          <ion-label>Viajes</ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="chatbubbles-outline"></ion-icon>
-          <ion-label>Mensajes</ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="card-outline"></ion-icon>
-          <ion-label>Credencial</ion-label>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div id="map" style="height: 200px; width: 100%;"></div>
-  <ion-footer>
- 
+
+  <!-- Tarjeta Mensajes -->
+  <ion-card class="card" routerLink="/mensajes">
+    <img src="assets/icon/mensajes4.svg" alt="Mensajes" />
+    <ion-card-content>
+      <h2>Mensajes</h2>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Fila con dos tarjetas -->
+  <div class="card-row">
+    <!-- Tarjeta Credencial -->
+    <ion-card class="small-card" routerLink="/credencial">
+      <img src="assets/icon/credencial3.svg" alt="Credencial" />
+      <ion-card-content>
+        <h2>Credencial</h2>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Tarjeta Dudas -->
+    <ion-card class="small-card" routerLink="/dudas">
+      <img src="assets/icon/faq.svg" alt="Dudas" />
+      <ion-card-content>
+        <h2>Dudas?</h2>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="perfil">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="notificaciones">
+          <ion-icon name="notifications-outline"></ion-icon>
+          <ion-label>Notificaciones</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="vehiculo">
+          <ion-icon name="car-outline"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>

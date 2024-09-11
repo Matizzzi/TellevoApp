@@ -1,39 +1,56 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Inicio</ion-title>
-    <ion-buttons slot="end">
-      <ion-button>
-        <ion-icon name="notifications-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <ion-card>
-    <img src="assets/icon/duocmeli.png" alt="Imagen Duoc UC"/>
-  </ion-card>
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="car-sport-outline"></ion-icon>
-          <ion-label>Viajes</ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="chatbubbles-outline"></ion-icon>
-          <ion-label>Mensajes</ion-label>
-        </ion-button>
-      </ion-col>
-      <ion-col>
-        <ion-button expand="block" color="light">
-          <ion-icon name="card-outline"></ion-icon>
-          <ion-label>Credencial</ion-label>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-  <div id="map" style="height: 200px; width: 100%;"></div>
-  <ion-footer>
- 
+<ion-content class="bg-dark">
+  <div class="container">
+    <div class="header">
+      <div class="header-left">
+        <h1 class="app-title">
+          <span class="tellevo">Tellevo</span>
+          <span class="app">App</span>
+        </h1>
+      </div>
+      <div class="header-right">
+        <a href="/iniciar-sesion" class="login-button" routerLink="/iniciarsesion">
+          <ion-icon name="person-circle" class="login-icon"></ion-icon>
+          <span>Iniciar Sesión</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="section-container">
+      <!-- Secciones originales -->
+      <div class="section viajas">
+        <ion-icon name="car" class="icon" routerLink="/viajes"></ion-icon>
+        <p>Viajas</p>
+      </div>
+      <div class="section publicar">
+        <ion-icon name="add-circle" class="icon"></ion-icon>
+        <p>Publicar</p>
+      </div>
+      <div class="section chat">
+        <ion-icon name="chatbubbles" class="icon"></ion-icon>
+        <p>Chat</p>
+      </div>
+      <div class="section preguntas">
+        <ion-icon name="help-circle" class="icon"></ion-icon>
+        <p>Preguntas</p>
+      </div>
+
+      <!-- Nuevas Secciones -->
+      <div class="section credencial">
+        <ion-icon name="card" class="icon"></ion-icon>
+        <p>Credencial</p>
+      </div>
+      <div class="section perfil">
+        <ion-icon name="person-circle" class="icon"></ion-icon>
+        <p>Perfil</p>
+      </div>
+      <div class="section historial">
+        <ion-icon name="time" class="icon"></ion-icon>
+        <p>Historial</p>
+      </div>
+      <div class="section configuracion">
+        <ion-icon name="settings" class="icon"></ion-icon>
+        <p>Configuración</p>
+      </div>
+    </div>
+  </div>
+</ion-content>

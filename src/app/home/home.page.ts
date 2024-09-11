@@ -14,19 +14,33 @@ export class HomePage {
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-
+  
+    const body = document.body;
+  
     if (this.isDarkMode) {
-      document.body.classList.add('dark');
-      document.body.classList.remove('light');
-      this.logo = 'https://w7.pngwing.com/pngs/528/231/png-transparent-duoc-uc-logo-concepcion-central-academy-of-fine-arts-duoc-text-logo-computer-wallpaper.png';
-    } else {
-      document.body.classList.add('light');
-      document.body.classList.remove('dark');
+      body.classList.add('dark');
+      body.classList.remove('light');
       this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
+      localStorage.setItem('theme', 'dark'); // Guarda el tema en el localStorage
+    } else {
+      body.classList.add('light');
+      body.classList.remove('dark');
+      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
+      localStorage.setItem('theme', 'light'); // Guarda el tema en el localStorage
     }
   }
 
   ngOnInit() {
-    document.body.classList.add('light');
+    const savedTheme = localStorage.getItem('theme');
+    
+    // Verifica si ya se ha guardado un tema y lo aplica
+    if (savedTheme === 'dark') {
+      this.isDarkMode = true;
+      document.body.classList.add('dark');
+      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
+    } else {
+      document.body.classList.add('light');
+      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
+    }
   }
 }

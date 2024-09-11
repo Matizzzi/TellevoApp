@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-iniciarsesion',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IniciarsesionPage implements OnInit {
 
-  constructor() { }
+  constructor(private navCtrl: NavController) { } // Inyecta NavController
 
   ngOnInit() {
+  } 
+
+  goToHome() {
+    this.navCtrl.navigateRoot('/principal');
   }
 
 }

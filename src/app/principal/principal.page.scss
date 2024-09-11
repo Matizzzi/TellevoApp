@@ -1,34 +1,180 @@
-:root {
-    --ion-color-primary: #001f54; /* Cambiar color primario para el header */
-    --ion-color-secondary: #FFB800; /* Color amarillo */
-  }
-  
-  ion-toolbar {
-    --background: var(--ion-color-primary);
-    color: var(--ion-color-secondary);
-  }
-  
-  ion-button {
-    --background: #FFFFFF;
-    --color: #666666;
-    --border-radius: 12px;
-    text-align: center;
-    height: 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  ion-title {
-    text-align: center;
-  }
-  
-  #map {
-    width: 100%;
-    height: 200px;
-    margin: 10px 0;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
+.bg-dark {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+}
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.app-title {
+  color: #FFB800;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.section-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.section {
+  width: 45%;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.section p {
+  margin-top: 10px;
+  font-size: 18px;
+  z-index: 1;
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 0;
+  transition: top 0.3s ease, right 0.3s ease;
+}
+
+.section:hover::before {
+  top: -40px;
+  right: -40px;
+}
+
+.section.viajas {
+  background-color: #666666;
+}
+
+.section.configuracion {
+  background-color: #666666;
+}
+
+.section.publicar {
+  background-color: #FFB800;
+}
+.section.historial {
+  background-color: #FFB800;
+}
+.section.chat {
+  background-color: #000000;
+}
+.section.perfil {
+  background-color: #000000;
+}
+
+.section.preguntas {
+  background-color: #EEEEEE;
+  color: #1A1A1A;
+}
+.section.credencial {
+  background-color: #EEEEEE;
+  color: #1A1A1A;
+}
+
+.icon {
+  font-size: 40px;
+  color: inherit;
+  z-index: 1;
+}
+/* Estilos anteriores */
+
+.map-container {
+  margin-top: 20px;
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.app-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.tellevo {
+  color: #FFFFFF; /* Blanco */
+}
+
+.app {
+  color: #FFB800; /* Amarillo */
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.header-left {
+  flex: 1;
+  text-align: center;
+}
+
+.header-right {
+  margin-left: auto; /* Alinea el contenido a la derecha */
+}
+
+.app-title {
+  color: #FFB800;
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.login-button {
+  display: flex;
+  align-items: center;
+  background-color: #FFB800;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #FFA000;
+}
+
+.login-icon {
+  font-size: 20px;
+  margin-right: 10px;
+}
+

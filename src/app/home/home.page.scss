@@ -28,7 +28,7 @@ ion-content {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(-45deg, #002855, #f7b500, #1e1e1e, #f4f5f8);
+  background: linear-gradient(-45deg, #002855, #f2b500c9, #1e1e1e, #f4f5f8); /* Color amarillo ajustado */
   background-size: 400% 400%;
   animation: gradient-animation 15s ease infinite;
   z-index: -1;
@@ -66,25 +66,25 @@ ion-content {
 }
 
 .app-name {
-  font-size: 4rem; /* Agranda el tamaño de la letra */
+  font-size: 4rem;
   font-weight: bold;
   margin-bottom: 50px;
 }
 
 .light-text .tellevo {
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .light-text .app {
-  color: #f7b500;
+  color: #f2b500b4; /* Color amarillo ajustado */
 }
 
 .dark-text .tellevo {
-  color: black; /* Cambia el color a negro en el tema oscuro */
+  color: black;
 }
 
 .dark-text .app {
-  color: #f7b500; /* Mantiene el color del texto de la app */
+  color: #f2b500b4; /* Color amarillo ajustado */
 }
 
 .register-btn {
@@ -95,7 +95,7 @@ ion-content {
 body.dark {
   --ion-background-color: #ffffff;
   --ion-text-color: #333;
-  --ion-color-warning: #f7b500;
+  --ion-color-warning: #f2b500b4; /* Color amarillo ajustado */
 }
 
 body.light {
@@ -104,8 +104,41 @@ body.light {
 }
 
 .dark .register-btn {
-  --color: #ffffff; /* Cambia el color del texto del botón a blanco en el tema oscuro */
+  --color: #ffffff;
 }
-.dark *{
+
+.dark * {
   background-color: #f4f5f8;
+}
+
+/* Nuevas transiciones y estilos para el botón de cambio de tema */
+ion-button {
+  --color: white;
+  --background: none;
+  --border-radius: 50%;
+  --padding: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+ion-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+ion-icon {
+  font-size: 24px;
+  transition: color 0.3s ease;
+}
+
+.dark ion-icon {
+  color: #f2b500b4; /* Color amarillo claro en modo oscuro */
+}
+
+.light ion-icon {
+  color: #000; /* Color oscuro en modo claro */
+}
+
+/* Transición suave para el cambio de temas */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }

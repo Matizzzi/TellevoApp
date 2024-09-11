@@ -14,4 +14,8 @@ export class RegistroPage {
   irAInicioSesion() {
     this.navCtrl.navigateForward('iniciarsesion');
   }
+  goToHome() {
+    this.navCtrl.navigateRoot('/principal');
+  }
+
 }

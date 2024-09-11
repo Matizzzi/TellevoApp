@@ -1,17 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
+    <!-- Mover el logo al header -->
+    <img src="assets/icon/logoo.png" alt="Logo" class="logo-header">
+
+    <!-- Botón en forma de "X" para cerrar e ir a la página principal -->
+   
   </ion-toolbar>
 </ion-header>
-
+<ion-buttons slot="end">
+  <ion-button (click)="goToHome()">
+    <ion-icon name="close-outline"></ion-icon>
+  </ion-button>
+</ion-buttons>
 <ion-content>
+  
   <div class="register-container">
-    <img src="assets/icon/logoo.png" alt="Logo" class="logo">
+    <!-- Mensaje de bienvenida -->
+    <h2 class="welcome-message">¡Bienvenido/a!</h2>
 
     <ion-card>
       <ion-card-content>
         <ion-item lines="none">
-          <ion-label position="stacked">Registro</ion-label>
+          <ion-label position="stacked" class="registro-label">Registro</ion-label>
         </ion-item>
 
         <ion-item lines="none">
@@ -38,10 +48,25 @@
           <ion-input placeholder="+56" type="tel"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" color="warning">Registrarme</ion-button>
+        <!-- Nueva pregunta: ¿Eres conductor o pasajero? -->
+        <ion-item lines="none">
+          <ion-label>¿Eres conductor o pasajero?</ion-label>
+        </ion-item>
+        
+        <ion-radio-group>
+          <ion-item>
+            <ion-label>Conductor</ion-label>
+            <ion-radio slot="start" value="conductor"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pasajero</ion-label>
+            <ion-radio slot="start" value="pasajero"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+
+        <ion-button expand="block" color="warning" routerLink="/principal">Registrarme</ion-button>
 
         <ion-button expand="block" color="warning" (click)="irAInicioSesion()">Iniciar Sesión</ion-button>
-
 
         <ion-button fill="clear" color="primary">Cancelar</ion-button>
       </ion-card-content>

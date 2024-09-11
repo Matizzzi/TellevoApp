@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .bg-dark {
   background-color: #1A1A1A;
   color: #FFFFFF;
@@ -178,3 +179,85 @@
   margin-right: 10px;
 }
 
+=======
+ion-toolbar {
+  --background: #ffffff;
+  --color: #000;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.weather-info ion-icon {
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+.card {
+  border-radius: 10px;
+  text-align: center;
+  margin: 10px;
+  img {
+    width: 100px; /* Tamaño fijo para el ancho */
+    height: 100px; /* Tamaño fijo para la altura */
+    border-radius: 10px;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin ser recortada */
+  }
+}
+
+.card:first-child {
+  background-color: #fdd7e0; /* Color rosado claro */
+}
+
+.card:nth-child(2) {
+  background-color: #32c787; /* Color verde */
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.small-card {
+  width: 48%;
+  text-align: center;
+  border-radius: 10px;
+  img {
+    width: 100px; /* Tamaño fijo para el ancho */
+    height: 100px; /* Tamaño fijo para la altura */
+    border-radius: 10px;
+    object-fit: contain; /* Asegura que la imagen se ajuste sin ser recortada */
+  }
+}
+
+.small-card:first-child {
+  background-color: #fee0c0; /* Color durazno claro */
+}
+
+.small-card:nth-child(2) {
+  background-color: #fcb59b; /* Color anaranjado claro */
+}
+
+ion-footer {
+  --background: #032a4d; /* Color de fondo azul oscuro */
+}
+
+ion-tab-bar {
+  --background: #032a4d; /* Color de fondo del tab bar */
+  --color: #ffffff; /* Color del texto e íconos en estado inactivo */
+  --color-selected: #ffcc00; /* Color del texto e íconos seleccionados */
+}
+
+ion-tab-bar ion-tab-button {
+  color: #ffffff; /* Asegura que el texto sea blanco */
+}
+
+ion-tab-bar ion-tab-button[tab="vehiculo"] ion-icon {
+  font-size: 32px; /* Tamaño mayor para el icono de vehículo */
+}
+>>>>>>> 0ddda75497949979e6302ea6131883539e85b11e

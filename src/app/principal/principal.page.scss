@@ -1,3 +1,4 @@
+/* Estilos generales de la página */
 .bg-dark {
   background-color: #1A1A1A;
   color: #FFFFFF;
@@ -8,8 +9,19 @@
 }
 
 .header {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 20px;
+}
+
+.header-left {
+  flex: 1;
+  text-align: center;
+}
+
+.header-right {
+  margin-left: auto;
 }
 
 .app-title {
@@ -17,6 +29,14 @@
   font-size: 28px;
   font-weight: bold;
   text-transform: uppercase;
+}
+
+.tellevo {
+  color: #FFFFFF; /* Blanco */
+}
+
+.app {
+  color: #FFB800; /* Amarillo */
 }
 
 .section-container {
@@ -49,12 +69,6 @@
   z-index: 1;
   position: relative;
 }
-.modal-content {
-  padding: 20px;
-  text-align: center;
-  background: white;
-  border-radius: 10px;
-}
 
 .section::before {
   content: '';
@@ -85,83 +99,286 @@
 .section.publicar {
   background-color: #FFB800;
 }
+
 .section.historial {
   background-color: #FFB800;
 }
+
 .section.chat {
   background-color: #000000;
 }
+
 .section.perfil {
   background-color: #000000;
+  color: #FFFFFF;
 }
 
 .section.preguntas {
   background-color: #EEEEEE;
   color: #1A1A1A;
 }
+
 .section.credencial {
   background-color: #EEEEEE;
   color: #1A1A1A;
 }
 
-.icon {
-  font-size: 40px;
-  color: inherit;
-  z-index: 1;
+/* Estilos específicos para el modal de perfil */
+.perfil-content {
+  background-color: #000000;
+  color: #FFFFFF;
 }
-/* Estilos anteriores */
-
-.map-container {
-  margin-top: 20px;
-  width: 100%;
-  height: 300px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+/* Estilos específicos para el modal de credencial */
+.credencial-content {
+  text-align: center;
 }
 
-#map {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-.app-title {
-  font-size: 28px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.tellevo {
-  color: #FFFFFF; /* Blanco */
-}
-
-.app {
-  color: #FFB800; /* Amarillo */
-}
-.header {
+.user-info {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.header-left {
+.user-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  color: #FFB800;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-email {
+  color: #FFFFFF;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.career-box {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  border: 2px solid #FFB800;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.career {
+  font-size: 18px;
+}
+
+.qr-code {
+  display: flex;
+  justify-content: center;
+}
+
+.qr-image {
+  width: 355px;
+  height: 150px;
+}
+/* Estilos específicos para el modal de chat */
+.chat-content {
+  background-color: #000000;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.user-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: #FFB800;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.chat-messages {
   flex: 1;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.message.received {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  align-self: flex-start;
+}
+
+.message.sent {
+  background-color: #FFB800;
+  color: #000000;
+  align-self: flex-end;
+}
+
+.message .sender {
+  font-weight: bold;
+}
+
+.message .text {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.chat-input textarea {
+  flex: 1;
+  background-color: #333333;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  font-size: 16px;
+}
+
+.chat-input button {
+  background-color: #FFB800;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #FFA000;
+}
+
+
+/* Recuadros para la información del perfil */
+.profile-box {
+  background-color: #1A1A1A;
+  color: #FFFFFF;
+  border: 2px solid #FFB800;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.profile-box-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFB800;
+  margin-bottom: 10px;
+}
+
+.profile-box-content {
+  font-size: 16px;
+  color: #FFFFFF;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-name {
+  color: #FFB800;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.user-email,
+.user-rut,
+.user-phone,
+.user-location,
+.user-entry,
+.user-semester {
+  color: #FFFFFF;
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.certificates {
+  margin-top: 20px;
+}
+
+.certificates-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFB800;
+  margin-bottom: 10px;
+}
+
+.certificates ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.certificates li {
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 5px 0;
+}
+
+.registration-date {
+  margin-top: 20px;
   text-align: center;
 }
 
-.header-right {
-  margin-left: auto; /* Alinea el contenido a la derecha */
+.registration-date p {
+  font-size: 16px;
+  color: #FFFFFF;
 }
 
-.app-title {
-  color: #FFB800;
-  font-size: 28px;
-  font-weight: bold;
-  text-transform: uppercase;
-}
+/* preguntas css */
 
+
+
+/* Estilos para el botón de login */
 .login-button {
   display: flex;
   align-items: center;
@@ -184,3 +401,9 @@
   margin-right: 10px;
 }
 
+/* Estilos para los componentes de fecha y hora */
+.ion-datetime {
+  --color: #FFB800; /* Cambia el color del texto del selector de fecha y hora */
+  --color-active: #FFB800; /* Cambia el color del texto seleccionado */
+  --border-color: #FFB800; /* Cambia el color del borde */
+}

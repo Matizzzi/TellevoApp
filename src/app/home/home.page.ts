@@ -6,7 +6,8 @@ import { AnimationController } from '@ionic/angular';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {@ViewChild('startButton', { read: ElementRef, static: true }) startButton!: ElementRef;
+export class HomePage {
+  @ViewChild('startButton', { read: ElementRef, static: true }) startButton!: ElementRef;
 
   logo: string = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
   isDarkMode: boolean = false;
@@ -15,17 +16,14 @@ export class HomePage {@ViewChild('startButton', { read: ElementRef, static: tru
 
   toggleTheme() {
     this.isDarkMode = !this.isDarkMode;
-
     const body = document.body;
     if (this.isDarkMode) {
       body.classList.add('dark');
       body.classList.remove('light');
-      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
       localStorage.setItem('theme', 'dark');
     } else {
       body.classList.add('light');
       body.classList.remove('dark');
-      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
       localStorage.setItem('theme', 'light');
     }
   }
@@ -35,10 +33,8 @@ export class HomePage {@ViewChild('startButton', { read: ElementRef, static: tru
     if (savedTheme === 'dark') {
       this.isDarkMode = true;
       document.body.classList.add('dark');
-      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
     } else {
       document.body.classList.add('light');
-      this.logo = 'https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8';
     }
 
     // Ejecutar la animación después de cargar la página

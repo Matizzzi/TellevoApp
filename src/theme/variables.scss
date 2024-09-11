@@ -1,7 +1,27 @@
 :root {
     --ion-color-primary: #002855;
     --ion-color-warning: #f7b500;
-    --ion-color-light: #f4f5f8;
+    --ion-color-light: #2A2A35;
     --ion-color-dark: #1e1e1e;
   }
-  
+  /* global.scss */
+body.light {
+  --background: #2A2A35; /* Fondo claro */
+  --text-color: #000000; /* Texto oscuro */
+  --header-bg: #2A2A35; /* Fondo del encabezado claro */
+}
+
+body.dark {
+  --background: #1a1a1a; /* Fondo oscuro */
+  --text-color: #ffffff; /* Texto claro */
+  --header-bg: #333333; /* Fondo del encabezado oscuro */
+}
+
+.app-content {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+.header {
+  background-color: var(--header-bg);
+}

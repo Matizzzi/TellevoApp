@@ -35,3 +35,25 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+/* global.scss */
+
+    :root {
+        --background-light: #dad7d7;
+        --background-dark: #2A2A35;
+        --text-light: #ffffff;
+        --text-dark: #fffefe;
+        /* Agrega más variables si es necesario */
+    }
+    
+    .light {
+        --ion-background-color: var(--background-light);
+        --ion-text-color: var(--text-light);
+        /* Agrega más estilos para el tema claro */
+    }
+    
+    .dark {
+        --ion-background-color: var(--background-dark);
+        --ion-text-color: var(--text-dark);
+        /* Agrega más estilos para el tema oscuro */
+    }
+    

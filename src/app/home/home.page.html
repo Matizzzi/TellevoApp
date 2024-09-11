@@ -1,77 +1,28 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>TellevoApp</ion-title>
+  <ion-toolbar class="toolbar">
+    <ion-title class="logo-container">
+      <img src="{{logo}}" alt="Duoc UC Logo" class="duoc-logo">
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="toggleTheme()">
+        <ion-icon name="moon-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content>
-  <p class="moontaxi pulse">TellevoApp</p>
+  <div class="animated-background"></div>
 
-
-  <a href="http://ridethemoontaxi.com/">
-    <div id="moon">
-      <div class='cab-group'>
-        <div class='cab cab1'>
-          <div class='container'>
-            <img alt='' src='assets/r8AUDI-removebg-preview.png'>
-          </div>
-        </div>
-        <div class='cab cab2'>
-          <div class='container'>
-            <img alt='' src='assets/r8AUDI-removebg-preview.png'>
-          </div>
-        </div>
-        <div class='cab cab3'>
-          <div class='container'>
-            <img alt='' src='assets/r8AUDI-removebg-preview.png'>
-          </div>
-        </div>
-        <div class='cab cab4'>
-          <div class='container'>
-            <img alt='' src='assets/r8AUDI-removebg-preview.png'>
-          </div>
-        </div>
-        <div class='cab cab5'>
-          <div class='container'>
-            <img alt='' src='assets/r8AUDI-removebg-preview.png'>
-          </div>
-        </div>
-
-
-        <div id="world"></div>
-
-
-        <div class="tower tower1">
-          <span></span>
-          <span></span>
-        </div>
-
-
-        <div class="tower tower2">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-
-
-        <div class="tower tower3">
-          <span></span>
-        </div>
-        <div><img class="plane" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Airplane_GA_Black.svg/768px-Airplane_GA_Black.svg.png"/></div>
-        <div class="tower tower4">
-          <span></span>
-        </div>
-
-
-        <div class="tower tower5">
-        </div>
-
-
-        <div class="tower tower6">
-        </div>
-      </div>
+  <div class="content-container" [ngClass]="{'light-content': !isDarkMode, 'dark-content': isDarkMode}">
+    <div class="app-name" [ngClass]="{'light-text': !isDarkMode, 'dark-text': isDarkMode}">
+      <span class="tellevo">TeLlevo</span>
+      <span class="app">App</span>
     </div>
-  </a>
+
+    <ion-button expand="block" color="warning" class="register-btn" routerLink="/iniciarsesion">
+      COMENZAR
+      <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>

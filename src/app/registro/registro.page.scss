@@ -1,53 +1,8 @@
-/* Logo en el header */
-.logo-header {
-  width: 50px;
-  height: auto;
-  margin-right: 10px;
-  vertical-align: middle;
-}
-
-ion-toolbar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-/* Mensaje de bienvenida */
-.welcome-message {
-  color: #fffafa; /* Negro */
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 20px;
+.login-container {
   text-align: center;
+  margin-top: 50px;
 }
 
-.register-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-ion-card {
-  width: 90%;
-  margin: 0 auto;
-}
-
-ion-button {
-  --border-radius: 20px;
-  margin-bottom: 10px;
-}
-
-ion-item {
-  margin-bottom: 15px;
-}
-
-ion-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-  text-align: center;
-}
-/* Logo en el header */
 .logo-header {
   width: 100px; /* Agrandar el logo */
   height: auto;
@@ -55,30 +10,10 @@ ion-label {
   display: block;
 }
 
-ion-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-}
-
-/* Botón "X" en el header */
-ion-button {
-  --color: #ffffff; /* Blanco para el ícono */
-}
-
-/* Mensaje de bienvenida */
-.welcome-message {
-  color: #ffffff; /* Negro */
-  font-size: 1.5rem;
+h2 {
+  font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-  text-align: center;
-}
-
-.register-container {
-  text-align: center;
-  margin-top: 20px;
 }
 
 ion-card {
@@ -86,20 +21,18 @@ ion-card {
   margin: 0 auto;
 }
 
-ion-item {
-  margin-bottom: 15px;
+.register-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: white;
 }
 
-ion-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: black;
-  text-align: center;
+.register-link {
+  color: var(--ion-color-warning); /* El mismo color del botón */
+  text-decoration: none;
 }
-.registro-label {
-  font-size: 1.8rem; /* Tamaño más grande */
-  font-weight: bold;
-  color: rgb(255, 255, 255);
-  text-align: center;
-  margin-bottom: 15px;
+
+ion-button {
+  --border-radius: 20px;
+  margin-bottom: 10px;
 }

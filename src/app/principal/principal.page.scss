@@ -49,6 +49,12 @@
   z-index: 1;
   position: relative;
 }
+.modal-content {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+}
 
 .section::before {
   content: '';

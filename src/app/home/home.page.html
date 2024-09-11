@@ -1,14 +1,15 @@
 <ion-header>
-  <ion-toolbar class="toolbar">
+  <ion-toolbar>
     <ion-title class="logo-container">
-      <img src="{{logo}}" alt="Duoc UC Logo" class="duoc-logo">
-    </ion-title>
+      <img src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8" alt="Duoc UC Logo" class="logo-header">
+
     <ion-buttons slot="end">
       <ion-button (click)="toggleTheme()">
         <ion-icon name="moon-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-  </ion-toolbar>
+  </ion-title>
+</ion-toolbar>
 </ion-header>
 
 <ion-content>
@@ -20,7 +21,8 @@
       <span class="app">App</span>
     </div>
 
-    <ion-button expand="block" color="warning" class="register-btn" routerLink="/iniciarsesion">
+    <!-- Botón con animación de rebote -->
+    <ion-button #startButton expand="block" color="warning" class="register-btn" routerLink="/iniciarsesion">
       COMENZAR
       <ion-icon slot="end" name="arrow-forward-outline"></ion-icon>
     </ion-button>

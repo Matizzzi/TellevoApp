@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header">
       <div class="header-left">
-        <h1 class="app-title">
+        <h1 class="app-title" #appTitle>
           <span class="tellevo">Tellevo</span>
           <span class="app">App</span>
         </h1>
@@ -10,47 +10,102 @@
       <div class="header-right">
         <a href="/iniciar-sesion" class="login-button" routerLink="/iniciarsesion">
           <ion-icon name="person-circle" class="login-icon"></ion-icon>
-          <span></span>
         </a>
       </div>
     </div>
 
     <div class="section-container">
       <!-- Secciones originales -->
-      <div class="section viajas">
-        <ion-icon name="car" class="icon" routerLink="/viajes"></ion-icon>
+      <div class="section viajas" routerLink="/viajes">
+        <ion-icon name="car" class="icon"></ion-icon>
         <p>Viaje</p>
       </div>
-      <div class="section publicar">
+
+      <!-- Publicar: abre el modal -->
+      <div class="section publicar" id="modal-trigger-publicar">
         <ion-icon name="add-circle" class="icon"></ion-icon>
         <p>Publicar</p>
       </div>
-      <div class="section chat">
+
+      <!-- Chat: abre el modal -->
+      <div class="section chat" id="modal-trigger-chat">
         <ion-icon name="chatbubbles" class="icon"></ion-icon>
         <p>Chat</p>
       </div>
-      <div class="section preguntas">
+
+      <!-- Preguntas: abre el modal -->
+      <div class="section preguntas" id="modal-trigger-preguntas">
         <ion-icon name="help-circle" class="icon"></ion-icon>
         <p>Preguntas</p>
       </div>
 
       <!-- Nuevas Secciones -->
-      <div class="section credencial">
+      <div class="section credencial" id="modal-trigger-credencial">
         <ion-icon name="card" class="icon"></ion-icon>
         <p>Credencial</p>
       </div>
-      <div class="section perfil">
+
+      <div class="section perfil" id="modal-trigger-perfil">
         <ion-icon name="person-circle" class="icon"></ion-icon>
         <p>Perfil</p>
       </div>
-      <div class="section historial">
+
+      <div class="section historial" id="modal-trigger-historial">
         <ion-icon name="time" class="icon"></ion-icon>
         <p>Historial</p>
       </div>
-      <div class="section configuracion">
+
+      <div class="section configuracion" id="modal-trigger-configuracion">
         <ion-icon name="settings" class="icon"></ion-icon>
         <p>Configuración</p>
       </div>
     </div>
+
+    <!-- Modal Publicar -->
+    <ion-modal trigger="modal-trigger-publicar" #modalPublicar>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Publicar</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="closeModal()">Cerrar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">Contenido del modal para Publicar</ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- Modal Chat -->
+    <ion-modal trigger="modal-trigger-chat" #modalChat>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Chat</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="closeModal()">Cerrar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">Contenido del modal para Chat</ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- Modal Preguntas -->
+    <ion-modal trigger="modal-trigger-preguntas" #modalPreguntas>
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Preguntas</ion-title>
+            <ion-buttons slot="end">
+              <ion-button (click)="closeModal()">Cerrar</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">Contenido del modal para Preguntas</ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <!-- Repite para los demás modales si es necesario -->
   </div>
 </ion-content>

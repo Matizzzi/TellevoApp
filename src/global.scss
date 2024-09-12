@@ -37,14 +37,14 @@
 @import "@ionic/angular/css/palettes/dark.system.css";
 /* global.scss */
 
-    :root {
-        --background-light: #dad7d7;
-        --background-dark: #2A2A35;
-        --text-light: #ffffff;
-        --text-dark: #fffefe;
-        /* Agrega más variables si es necesario */
-    }
-    
+:root {
+    --background-light: #dad7d7;
+    --background-dark: rgb(35, 36, 40);
+    --text-light: #ffffff;
+    --text-dark: #fffefe;
+    /* Agrega más variables si es necesario */
+}
+
     .light {
         --ion-background-color: var(--background-light);
         --ion-text-color: var(--text-light);

@@ -49,6 +49,95 @@
         --ion-background-color: var(--background-light);
         --ion-text-color: var(--text-light);
         /* Agrega más estilos para el tema claro */
+        .historial-content[_ngcontent-ng-c1502887477] .historial-box[_ngcontent-ng-c1502887477] {
+            border: 1px solid #666666;
+            border-radius: 8px;
+            padding: 16px;
+            background-color: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .historial-content[_ngcontent-ng-c1502887477] .historial-box-title[_ngcontent-ng-c1502887477] {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+        .historial-content[_ngcontent-ng-c1502887477] .historial-box-content[_ngcontent-ng-c1502887477] .viaje-info[_ngcontent-ng-c1502887477] .viaje-driver[_ngcontent-ng-c1502887477], .historial-content[_ngcontent-ng-c1502887477] .historial-box-content[_ngcontent-ng-c1502887477] .viaje-info[_ngcontent-ng-c1502887477] .viaje-destination[_ngcontent-ng-c1502887477] {
+            font-size: 16px;
+            color: #000000;
+            margin: 4px 0;
+        }
+        .perfil-content[_ngcontent-ng-c1502887477] {
+            background-color: #ffffff;
+            color: #2a2a35;
+        }
+        .profile-box[_ngcontent-ng-c1502887477] {
+            background-color: #ffffff;
+            color: #1e2023;
+            border: 2px solid #000000;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .profile-box-content[_ngcontent-ng-c1502887477] {
+            font-size: 16px;
+            color: #2a2a35;
+        }
+        .user-email[_ngcontent-ng-c1502887477], .user-rut[_ngcontent-ng-c1502887477], .user-phone[_ngcontent-ng-c1502887477], .user-location[_ngcontent-ng-c1502887477], .user-entry[_ngcontent-ng-c1502887477], .user-semester[_ngcontent-ng-c1502887477] {
+            color: #000000;
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .user-name[_ngcontent-ng-c1502887477] {
+            color: #1e2023;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .career-box[_ngcontent-ng-c1502887477] {
+            background-color: #f2f2f2;
+            color: #1e2023;
+            border: 2px solid #000000;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h2[_ngcontent-ng-c1951124142] {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: black;
+        }
+        .button-inner {
+            display: flex;
+            position: relative;
+            flex-flow: row;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            color: black;
+        }
+        .user-name[_ngcontent-ng-c1502887477] {
+            color: #000000;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tema_a{
+            color: #000000  ;
+        }
+        .lol{
+            background:#ffffff ;
+        }
+        .custom-item {
+            --background: #ffffff; /* Cambia el color de fondo a blanco */
+            --color: #000000; /* Cambia el color del texto a negro o el que prefieras */
+            --border-color: #dcdcdc; /* Opcional: cambia el color del borde si es necesario */
+          }
+          
+
     }
     
     .dark {

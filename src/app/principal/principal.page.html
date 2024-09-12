@@ -404,35 +404,36 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-      <p>Elige el tema de la aplicación:</p>
+      <p class="tema_a">Elige el tema de la aplicación:</p>
 
       <!-- Grupo de radios para seleccionar el tema -->
       <ion-radio-group [(ngModel)]="selectedTheme">
         <ion-list-header>
-          <ion-label>Elige el tema</ion-label>
+          <ion-label class="tema_a" >Elige el tema</ion-label>
         </ion-list-header>
-        <ion-item>
+        <ion-item class="custom-item">
           <ion-label>Claro</ion-label>
           <ion-radio slot="start" value="light"></ion-radio>
         </ion-item>
-        <ion-item>
+        
+        <ion-item class="custom-item" >
           <ion-label>Oscuro</ion-label>
           <ion-radio slot="start" value="dark"></ion-radio>
         </ion-item>
       </ion-radio-group>
       
-      <p>Elige el idioma de la aplicación:</p>
+      <p class="tema_a">Elige el idioma de la aplicación:</p>
 
       <!-- Grupo de radios para seleccionar el idioma -->
       <ion-radio-group [(ngModel)]="selectedLanguage">
         <ion-list-header>
-          <ion-label>Elige el idioma</ion-label>
+          <ion-label class="tema_a" >Elige el idioma</ion-label>
         </ion-list-header>
-        <ion-item>
+        <ion-item class="custom-item">
           <ion-label>Español</ion-label>
           <ion-radio slot="start" value="es"></ion-radio>
         </ion-item>
-        <ion-item>
+        <ion-item class="custom-item">
           <ion-label>Inglés</ion-label>
           <ion-radio slot="start" value="en"></ion-radio>
         </ion-item>

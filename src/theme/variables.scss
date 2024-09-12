@@ -25,3 +25,15 @@ body.dark {
 .header {
   background-color: var(--header-bg);
 }
+:root {
+  --ion-color-primary: #FFB800;
+  --ion-color-primary-rgb: 0, 84, 233;
+  --ion-color-primary-contrast: #fff;
+  --ion-color-primary-shade: #004acd;
+  --ion-color-primary-tint: #1a65eb;
+}
+:root {
+  --ion-item-background: #ffffff; /* Color de fondo de ion-item */
+  --ion-item-text-color: #000000; /* Color del texto de ion-item */
+  --ion-item-border-color: #dcdcdc; /* Color del borde de ion-item */
+}

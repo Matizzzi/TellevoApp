@@ -136,7 +136,54 @@
             --color: #000000; /* Cambia el color del texto a negro o el que prefieras */
             --border-color: #dcdcdc; /* Opcional: cambia el color del borde si es necesario */
           }
+          .card-content-md {
+            -webkit-padding-start: 16px;
+            padding-inline-start: 16px;
+            -webkit-padding-end: 16px;
+            padding-inline-end: 16px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #000000;
+            background: white;
+            color: black;
+        }        
+        .custom-card {
+            --background: #ffffff; /* Cambia el color de fondo del ion-card a blanco */
+            --box-shadow: none; /* Opcional: elimina la sombra del card si es necesario */
+          }
           
+          .custom-card ion-card-content {
+            --background: #ffffff; /* Cambia el color de fondo del contenido del card a blanco */
+          }
+          
+          .custom-card ion-item {
+            --background: #ffffff; /* Cambia el color de fondo de los items dentro del card a blanco */
+          }
+          .input-wrapper.sc-ion-input-md input.sc-ion-input-md {
+            -webkit-transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            color: black;
+        }
+        .label-stacked.sc-ion-label-md-h {
+            -webkit-transform: translateY(50%) scale(0.75);
+            transform: translateY(50%) scale(0.75);
+            -webkit-transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            color: black;
+        }
+        .register-text[_ngcontent-ng-c3004472627] {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #000;
+        }
+        h2[_ngcontent-ng-c3004472627] {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: black;
+        }
 
     }
     

@@ -17,27 +17,28 @@
   <div class="login-container">
     <h2>Bienvenido/a</h2>
 
-    <ion-card>
+    <ion-card class="custom-card">
       <ion-card-content>
         <ion-item lines="none">
           <ion-label position="stacked">Inicio de sesión</ion-label>
         </ion-item>
-
+    
         <ion-item lines="none">
           <ion-input placeholder="usuario@tucorreo.cl" type="email"></ion-input>
         </ion-item>
-
+    
         <ion-item lines="none">
           <ion-input placeholder="Contraseña" type="password"></ion-input>
           <ion-icon name="eye-outline" slot="end"></ion-icon>
         </ion-item>
-
+    
         <ion-button expand="block" color="warning" routerLink="/principal">Ingresar</ion-button>
-
+    
         <p class="register-text">
           ¿No tienes cuenta? <a routerLink="/registro" class="register-link">Regístrate aquí</a>
         </p>
       </ion-card-content>
     </ion-card>
+    
   </div>
 </ion-content>

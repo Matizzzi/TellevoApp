@@ -407,3 +407,49 @@
   --color-active: #FFB800; /* Cambia el color del texto seleccionado */
   --border-color: #FFB800; /* Cambia el color del borde */
 }
+.historial-content {
+  .historial-box {
+    border: 1px solid #666666; // Gris
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #000000; // Blanco
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .historial-box-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #fffbfb; // Negro
+    margin-bottom: 8px;
+  }
+
+  .historial-box-content {
+    .viaje-info {
+      margin-bottom: 16px;
+
+      .viaje-date {
+        font-size: 16px;
+        color: #FFB800; // Amarillo
+        font-weight: bold;
+        margin: 4px 0;
+      }
+
+      .viaje-driver::before {
+        content: "🚗 ";
+        color: #000000; // Negro
+      }
+
+      .viaje-destination::before {
+        content: "📍 ";
+        color: #ffffff; // Negro
+      }
+
+      .viaje-driver,
+      .viaje-destination {
+        font-size: 16px;
+        color: #ffffff; // Gris
+        margin: 4px 0;
+      }
+    }
+  }
+}

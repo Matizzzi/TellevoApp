@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="logo-container">
+      <img src="https://reqlut2.s3.sa-east-1.amazonaws.com/reqlut-images/duoc/logo_duoc_white.png?v=62.8" alt="Duoc UC Logo" class="logo-header">
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-container">
+    <h2>Recuperar contraseña</h2>
+
+    <ion-card class="custom-card">
+      <ion-card-content>
+        <ion-item lines="none">
+          <ion-label position="stacked">Correo electrónico</ion-label>
+          <ion-input placeholder="Ingresa tu correo" type="email" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+
+        <ion-button expand="block" (click)="resetPassword(user.email)">Enviar</ion-button>
+
+        <div class="ion-text-center ion-margin-top">
+          <a routerLink="/iniciarsesion"><small>Volver al inicio de sesión</small></a>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

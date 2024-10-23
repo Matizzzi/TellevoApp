@@ -34,10 +34,10 @@
         <ion-item lines="none">
           <ion-input placeholder="Confirmar contraseña" type="password"  [(ngModel)]="user.password" required></ion-input>
         </ion-item>
-
         <ion-item lines="none">
-          <ion-input placeholder="+56" type="tel"></ion-input>
+          <ion-input placeholder="+56" type="tel" [(ngModel)]="user.phone" required></ion-input>
         </ion-item>
+        
 
         <ion-button expand="block" color="warning" (click)="register(user)">Registrarme</ion-button>
         <ion-button expand="block" color="warning" (click)="irAInicioSesion()">Iniciar Sesión</ion-button>

@@ -3,4 +3,5 @@ export interface User{
     password:string; 
     lastname:string; 
     name:string;
+    phone:string;
 }

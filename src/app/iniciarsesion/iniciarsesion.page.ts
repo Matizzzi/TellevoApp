@@ -33,7 +33,7 @@ export class IniciarsesionPage implements OnInit {
         // Intento de iniciar sesión
         await this.afAuth.signInWithEmailAndPassword(user.email, user.password).then(data => {
           console.log(data);
-          this.navCtrl.navigateRoot("home"); // Redirigir a la página de inicio
+          this.navCtrl.navigateRoot("principal"); // Redirigir a la página de inicio
         });
       } catch (error: any) {
         let errorMessage: string;

@@ -90,37 +90,46 @@
 
 .section.viajas {
   background-color: #666666;
+  color: #ffffff;
 }
 
 .section.configuracion {
   background-color: #666666;
+  color: #ffffff;
 }
 
 .section.publicar {
-  background-color: #FFB800;
+  background-color: #666666;
+  color: #ffffff;
 }
 
 .section.historial {
-  background-color: #FFB800;
+  background-color: #666666;
+  color: #ffffff;
 }
 
 .section.chat {
-  background-color: #000000;
+  background-color: #666666;
+  color: #ffffff;
 }
 
 .section.perfil {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #666666;
+  color: #ffffff;
 }
 
 .section.preguntas {
-  background-color: #EEEEEE;
-  color: #1A1A1A;
+  background-color: #666666;
+  color: #ffffff;
 }
 
 .section.credencial {
-  background-color: #EEEEEE;
-  color: #1A1A1A;
+  background-color: #666666;
+  color: #ffffff;
+}
+.section.mapa {
+  background-color: #666666;
+  color: #ffffff;
 }
 
 /* Estilos específicos para el modal de perfil */
@@ -453,3 +462,42 @@
     }
   }
 }
+
+
+.section-container{
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-container2{
+  width: 215%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-container3{
+  width: 215%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+  color: #1A1A1A;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+

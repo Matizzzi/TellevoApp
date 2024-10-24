@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AnimationController, IonModal, Animation, IonDatetime } from '@ionic/angular';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+declare var google: any;
+
 @Component({
   selector: 'app-principal',
   templateUrl: './principal.page.html',

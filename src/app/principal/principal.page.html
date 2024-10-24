@@ -1,31 +1,43 @@
 <ion-content class="bg-dark">
-  <div class="container">
+  <div >
     <div class="header">
       <div class="header-left">
         <h1 class="app-title" #appTitle>
-          <span class="tellevo">Tellevo</span>
-          <span class="app">App</span>
+          <span class="tellevo">Bienvenido/a</span>
+          <span class="app">    User</span>
         </h1>
       </div>
-      <div class="header-right">
-        <a href="/iniciar-sesion" class="login-button" routerLink="/iniciarsesion">
-          <ion-icon name="person-circle" class="login-icon"></ion-icon>
-        </a>
-      </div>
+      
     </div>
-
+    <ion-tabs>
+      <ion-tab-bar slot="bottom" class="custom-tab-bar"> <!-- Barra de navegación personalizada -->
+        <ion-tab-button tab="home" class="custom-tab-button">
+          <ion-icon name="home" class="custom-tab-icon"></ion-icon>
+          <ion-label class="custom-tab-label">Home</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="user" class="custom-tab-button" id="modal-trigger-perfil">
+          <ion-icon name="person" class="custom-tab-icon"></ion-icon>
+          <ion-label class="custom-tab-label">Usuario</ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="settings" class="custom-tab-button" id="modal-trigger-configuracion">
+          <ion-icon name="settings" class="custom-tab-icon"></ion-icon>
+          <ion-label class="custom-tab-label">Ajustes</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+    
+    <div class="section-container3">
+      <a routerLink="/ruta" class="register-link">
+      <div class="section mapa">
+        <ion-icon name="location-outline"></ion-icon>
+        <p>Mapa</p>
+      </div></a>
+    </div>
     <div class="section-container">
       <!-- Secciones originales -->
-      <div class="section viajas" id="modal-trigger-Viaje">
-        <ion-icon name="car" class="icon"></ion-icon>
-        <p>Pedir Viaje</p>
-      </div>
-
-      <!-- Publicar: abre el modal -->
-      <div class="section publicar" id="modal-trigger-publicar">
-        <ion-icon name="add-circle" class="icon"></ion-icon>
-        <p>Publicar</p>
-      </div>
+  
 
       <!-- Chat: abre el modal -->
       <div class="section chat" id="modal-trigger-chat">
@@ -45,21 +57,25 @@
         <p>Credencial</p>
       </div>
 
-      <div class="section perfil" id="modal-trigger-perfil">
-        <ion-icon name="person-circle" class="icon"></ion-icon>
-        <p>Perfil</p>
-      </div>
-
       <div class="section historial" id="modal-trigger-historial">
         <ion-icon name="time" class="icon"></ion-icon>
         <p>Historial</p>
       </div>
 
-      <div class="section configuracion" id="modal-trigger-configuracion">
-        <ion-icon name="settings" class="icon"></ion-icon>
-        <p>Configuración</p>
-      </div>
     </div>
+
+    <div class="section-container2">
+    <ion-input label="Ingresa tu ubicacion" label-placement="floating" fill="solid" placeholder="Enter text"></ion-input>
+    <div class="section preguntas" id="modal-trigger-preguntas">
+      <ion-icon name="school-outline"></ion-icon>
+      <p>Ubicación Sede</p>
+    </div>
+    <div class="section preguntas" id="modal-trigger-preguntas">
+      <ion-icon name="home-outline"></ion-icon>
+      <p>Ubicación Casa</p>
+    </div>
+  </div>
+
 
     <!-- Modal Pedir Viaje -->
     <ion-modal trigger="modal-trigger-Viaje" #modalViaje>

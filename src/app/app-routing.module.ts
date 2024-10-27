@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: '',
@@ -13,27 +13,27 @@ const routes: Routes = [
   },
   {
     path: 'registro',
-    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
+    loadChildren: () => import('./registro/registro.module').then(m => m.RegistroPageModule)
   },
   {
     path: 'iniciarsesion',
-  loadChildren: () => import('./iniciarsesion/iniciarsesion.module').then(m => m.IniciarsesionPageModule)
-},
-  {
-    path: 'principal',
-    loadChildren: () => import('./principal/principal.module').then( m => m.PrincipalPageModule)
-  },
-  {
-    path: 'viajes',
-    loadChildren: () => import('./viajes/viajes.module').then( m => m.ViajesPageModule)
+    loadChildren: () => import('./iniciarsesion/iniciarsesion.module').then(m => m.IniciarsesionPageModule)
   },
   {
     path: 'reset-pass',
-    loadChildren: () => import('./reset-pass/reset-pass.module').then( m => m.ResetPassPageModule)
-  },  {
-    path: 'ruta',
-    loadChildren: () => import('./ruta/ruta.module').then( m => m.RutaPageModule)
+    loadChildren: () => import('./reset-pass/reset-pass.module').then(m => m.ResetPassPageModule)
   },
+  {
+    path: 'ruta',
+    loadChildren: () => import('./ruta/ruta.module').then(m => m.RutaPageModule)
+  },
+  {
+    path: 'interface',
+    loadChildren: () => import('./interface/interface.module').then(m => m.InterfacePageModule)
+  },
+
+
+
 
 ];
 
@@ -43,4 +43,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

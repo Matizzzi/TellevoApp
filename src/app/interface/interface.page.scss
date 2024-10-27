@@ -1,0 +1,293 @@
+.header-toolbar {
+  background-color: #1A1A1A; /* Negro */
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.header-logo img {
+  height: 40px; /* Ajusta la altura del logo */
+  animation: fadeIn 0.5s ease-in-out; /* Animación de aparición */
+}
+
+.header-title {
+  font-size: 1.8rem; /* Tamaño de fuente del título */
+  font-weight: bold; /* Negrita */
+  color: #FFB800; /* Amarillo */
+  text-align: center; /* Centrar el texto */
+  animation: slideIn 0.5s ease-in-out; /* Animación de deslizamiento */
+}
+
+.header-button {
+  --color: #FFB800; /* Color amarillo para el icono */
+  transition: transform 0.3s; /* Animación al pasar el mouse */
+}
+
+.header-button:hover {
+  transform: scale(1.1); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+
+.welcome-container {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #e0e0e0; /* Negro */
+  margin-bottom: 10px;
+  animation: fadeInUp 0.5s ease-in-out; /* Animación de aparición hacia arriba */
+}
+
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: #666666; /* Gris */
+  margin-bottom: 30px;
+  animation: fadeInUp 0.5s ease-in-out 0.2s; /* Animación con retraso */
+}
+
+.start-button {
+  background-color: #FFB800; /* Amarillo */
+  color: black; /* Texto negro */
+  font-size: 1.2rem;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  --ion-color-primary: #FFB800; /* Cambia el color primario al amarillo */
+  --ion-color-primary-contrast: black; /* Cambia el color de contraste a negro */
+}
+
+
+.start-button:hover {
+  transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+
+.additional-buttons {
+  margin-top: 20px; /* Espacio entre el botón principal y los botones adicionales */
+}
+
+.modal-button {
+  background-color: #666666; /* Gris */
+  color: white; /* Texto blanco */
+  margin-bottom: 10px; /* Espacio entre los botones adicionales */
+  transition: transform 0.3s; /* Animación al pasar el mouse */
+}
+
+.modal-button:hover {
+  transform: scale(1.05); /* Aumenta el tamaño del botón al pasar el mouse */
+}
+
+.promo-box {
+  background-color: #1A1A1A; /* Negro */
+  color: #FFB800; /* Amarillo */
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  margin-top: 30px; /* Espacio superior */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  text-align: center; /* Centrar texto */
+  transition: transform 0.3s; /* Transición suave */
+}
+
+.promo-box:hover {
+  transform: scale(1.05); /* Aumenta tamaño al pasar el mouse */
+}
+
+.promo-box h3 {
+  margin: 0 0 10px 0; /* Margen entre el título y el texto */
+  font-size: 1.5rem; /* Tamaño de fuente del título */
+}
+
+.promo-box p {
+  margin-bottom: 15px; /* Margen inferior */
+  font-size: 1rem; /* Tamaño de fuente del texto */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Fondo de burbujas animadas */
+.bubble-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #111, #000);
+  overflow: hidden;
+  z-index: -1;
+}
+
+.bubble-background::before,
+.bubble-background::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 184, 0, 0.3);
+  animation: bubble-move 15s infinite ease-in-out;
+}
+
+.bubble-background::before {
+  width: 200px;
+  height: 200px;
+  bottom: -50px;
+  left: -50px;
+  animation-delay: 0s;
+}
+
+.bubble-background::after {
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  animation-delay: 5s;
+}
+
+@keyframes bubble-move {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-50vh) scale(1.3); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* Estilos del encabezado */
+.header-toolbar {
+  background-color: #1A1A1A;
+}
+
+.header-title {
+  font-size: 2rem;
+  color: #FFB800;
+  text-align: center;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+/* Botones interactivos */
+.start-button,
+.modal-button,
+.promo-button {
+  background-color: #FFB800;
+  color: #1A1A1A;
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 1.2rem;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.start-button:hover,
+.modal-button:hover,
+.promo-button:hover {
+  background-color: #e5a800;
+  transform: scale(1.1);
+}
+
+.modal-button {
+  background-color: #444;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.promo-box {
+  background-color: #222;
+  color: #FFB800;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 30px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideIn {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+/* Estilos de título con dos colores */
+.header-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  animation: slideIn 0.5s ease-in-out;
+}
+
+.title-white {
+  color: #FFFFFF; /* Blanco */
+}
+
+.title-yellow {
+  color: #FFB800; /* Amarillo */
+}
+/* Estilo para los modales con bordes redondeados */
+ion-modal {
+  --border-radius: 20px;
+  --background: #fff;
+  --box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Asegura que el contenido respete los bordes redondeados */
+}
+
+/* Contenido del modal */
+.modal-content {
+  padding: 20px;
+  border-radius: 20px; /* Bordes redondeados */
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra para destacar el modal */
+  text-align: center;
+}
+
+/* Título y texto del modal */
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-text {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* Botón del modal */
+.modal-button {
+  --border-radius: 10px;
+  --background: #444;
+  color: white;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+.modal-button:hover {
+  --background: #555;
+}

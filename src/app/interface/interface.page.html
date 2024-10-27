@@ -1,0 +1,37 @@
+  <ion-header>
+    <ion-toolbar class="header-toolbar">
+      <div class="header-logo">
+        <!-- Agrega tu logo aquí -->
+      </div>
+      <ion-title class="header-title">
+        <span class="title-white">Tellevo</span><span class="title-yellow">App</span>
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-button class="header-button">
+          <ion-icon name="settings"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-content class="ion-padding bg-grey">
+    <div class="bubble-background"></div>
+    <div class="welcome-container">
+      <h2 class="welcome-title">¡Hola, {{ userData?.name ?? 'Invitado' }}!</h2> <!-- Usar 'Invitado' como valor por defecto -->
+      <ion-button expand="full" class="start-button">Comenzar Viaje</ion-button>
+   
+  
+
+      <div class="additional-buttons">
+        <ion-button expand="full" class="modal-button" (click)="openCredentialsModal()">Credenciales</ion-button>
+        <ion-button expand="full" class="modal-button" (click)="openHistoryModal()">Historial</ion-button>
+      </div>
+      
+      <div class="promo-box">
+        <h3>¡Califica la app!</h3>
+        <p>Tu opinión es importante. ¡Déjanos tus comentarios!</p>
+        <ion-button expand="full" class="promo-button">Calificar Ahora</ion-button>
+      </div>
+    </div>
+  </ion-content>

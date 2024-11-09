@@ -8,12 +8,17 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { environment } from '../environments/environment';
-import { CredencialesModalComponent } from './credenciales-modal/credenciales-modal.component'; // Asegúrate de importar tu componente
+import { FormsModule } from '@angular/forms';
+
+// Importar tus componentes
+import { CredencialesModalComponent } from './credenciales-modal/credenciales-modal.component'; 
+import { PublicarviajeModalComponent } from './publicarviaje-modal/publicarviaje-modal.component';  // Importar el nuevo componente modal
 
 @NgModule({
   declarations: [
     AppComponent,
-    CredencialesModalComponent // Asegúrate de declarar aquí el componente
+    CredencialesModalComponent, // Declarar el componente CredencialesModal
+    PublicarviajeModalComponent  // Declarar el componente PublicarviajeModal
   ],
   imports: [
     BrowserModule,
@@ -21,9 +26,12 @@ import { CredencialesModalComponent } from './credenciales-modal/credenciales-mo
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireAuthModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    FormsModule
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
-  bootstrap: [AppComponent],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,18 +1,19 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AnimationController, ModalController, NavController } from '@ionic/angular';
+import { AnimationController, ModalController } from '@ionic/angular';
 import { ClienteService } from '../services/cliente.service';
 import { AuthService } from '../auth.service'; 
 import { User } from '../models/user.module';
 import { Subscription } from 'rxjs';
-import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component'; // Ajusta la ruta
+import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component';
 import { HistorialModalComponent } from '../historial-modal/historial-modal.component';
+import { PublicarviajeModalComponent } from '../publicarviaje-modal/publicarviaje-modal.component'; // Importar el modal de "Publicar Viaje"
 
 @Component({
-  selector: 'app-interface',
-  templateUrl: './interface.page.html',
-  styleUrls: ['./interface.page.scss'],
+  selector: 'app-interface-conductor',
+  templateUrl: './interface-conductor.page.html',
+  styleUrls: ['./interface-conductor.page.scss'],
 })
-export class InterfacePage implements OnInit, OnDestroy {
+export class InterfaceConductorPage implements OnInit, OnDestroy {
   userData: User | null = null;
   userName: string = 'Invitado';
   private userSubscription!: Subscription;
@@ -21,8 +22,7 @@ export class InterfacePage implements OnInit, OnDestroy {
     private animationCtrl: AnimationController,
     private clienteService: ClienteService,
     private authService: AuthService,
-    private modalController: ModalController,
-    private navCtrl: NavController
+    private modalController: ModalController 
   ) {}
 
   ngOnInit() {
@@ -56,8 +56,8 @@ export class InterfacePage implements OnInit, OnDestroy {
   async openCredentialsModal() {
     this.animateButton('modal-button');
     const modal = await this.modalController.create({
-      component: CredencialesModalComponent,
-      componentProps: { user: this.userData },
+      component: CredencialesModalComponent, 
+      componentProps: { user: this.userData }, 
     });
     await modal.present();
   }
@@ -65,6 +65,14 @@ export class InterfacePage implements OnInit, OnDestroy {
   async openHistoryModal() {
     const modal = await this.modalController.create({
       component: HistorialModalComponent
+    });
+    await modal.present();
+  }
+
+  // Método para abrir el modal de "Publicar Viaje"
+  async openPublicarViajeModal() {
+    const modal = await this.modalController.create({
+      component: PublicarviajeModalComponent // Asegúrate de que el componente esté creado
     });
     await modal.present();
   }
@@ -83,11 +91,5 @@ export class InterfacePage implements OnInit, OnDestroy {
         ]);
       animation.play();
     }
-  }
-
-  // Método de cerrar sesión
-  async logout() {
-    await this.authService.logout();
-    this.navCtrl.navigateRoot('/iniciarsesion'); // Redirige a la página de inicio de sesión
   }
 }

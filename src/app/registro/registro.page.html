@@ -9,37 +9,56 @@
     <ion-card class="contenedor-register">
       <ion-card-content>
         <ion-item lines="none">
-          <ion-label position="stacked" class="registro-label"><h1>Registro</h1></ion-label>
+          <ion-label position="stacked" class="registro-label">
+            <h1>Registro</h1>
+          </ion-label>
         </ion-item>
-        <ion-label position="floating">RUT (Ej: 12345678-9)</ion-label>
-        <ion-input type="text" [(ngModel)]="user.rut" required></ion-input>
         
-        <ion-item lines="none">
+        <ion-item lines="none" class="input-item">
+          <ion-input placeholder="RUT (Ej: 12345678-9)" type="text" [(ngModel)]="user.rut" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none" class="input-item">
           <ion-input placeholder="usuario@tucorreo.cl" type="email" [(ngModel)]="user.email" required></ion-input>
         </ion-item>
 
-        <ion-item lines="none">
-          <ion-input placeholder="Nombre" type="text" [(ngModel)]="user.name" required=""></ion-input>
+        <ion-item lines="none" class="input-item">
+          <ion-input placeholder="Nombre" type="text" [(ngModel)]="user.name" required></ion-input>
         </ion-item>
 
-        <ion-item lines="none">
-          <ion-input placeholder="Apellido" type="text" [(ngModel)]="user.lastname" required=""></ion-input>
+        <ion-item lines="none" class="input-item">
+          <ion-input placeholder="Apellido" type="text" [(ngModel)]="user.lastname" required></ion-input>
         </ion-item>
 
-        <ion-item lines="none">
-          <ion-input placeholder="Contraseña" type="password"  [(ngModel)]="user.password" required></ion-input>
+        <ion-item lines="none" class="input-item">
+          <ion-input placeholder="Contraseña" type="password" [(ngModel)]="user.password" required></ion-input>
         </ion-item>
 
-        <ion-item lines="none">
-          <ion-input placeholder="Confirmar contraseña" type="password"   required></ion-input>
+        <ion-item lines="none" class="input-item">
+          <ion-input placeholder="Confirmar contraseña" type="password" required></ion-input>
         </ion-item>
         
-        <ion-item lines="none">
+        <ion-item lines="none" class="input-item">
           <ion-input placeholder="+56" type="tel" [(ngModel)]="user.phone" required></ion-input>
         </ion-item>
+        
+        <!-- Radio Group for selecting role -->
+        <ion-radio-group [(ngModel)]="user.role" required>
+          <ion-list-header>
+            <ion-label>¿Eres conductor o cliente?</ion-label>
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Conductor</ion-label>
+            <ion-radio slot="start" value="conductor"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Cliente</ion-label>
+            <ion-radio slot="start" value="cliente"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
 
-        <ion-button expand="block" color="warning" (click)="register()">Registrarme</ion-button>
-        <ion-button expand="block" color="warning" (click)="irAInicioSesion()">Iniciar Sesión</ion-button>
+        <ion-button expand="block" color="warning" class="register-button" (click)="register()">Registrarme</ion-button>
+        <ion-button expand="block" color="warning" class="login-button" (click)="irAInicioSesion()">Iniciar Sesión</ion-button>
 
       </ion-card-content>
     </ion-card>

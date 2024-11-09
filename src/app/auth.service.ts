@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AuthUser } from './models/auth-user.module'; // Importa la nueva interfaz
+import { AuthUser } from './models/auth-user.module'; // Importa la interfaz AuthUser
 
 @Injectable({
   providedIn: 'root'

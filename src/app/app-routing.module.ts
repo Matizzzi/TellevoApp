@@ -31,7 +31,11 @@ const routes: Routes = [
     path: 'interface',
     loadChildren: () => import('./interface/interface.module').then(m => m.InterfacePageModule)
   },
-
+  {
+    path: 'interface-conductor',
+    loadChildren: () => import('./interface-conductor/interface-conductor.module').then(m => m.InterfaceConductorPageModule),
+  },
+  
 
 
 

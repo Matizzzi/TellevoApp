@@ -4,7 +4,6 @@ import { User } from '../models/user.module';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component';
 
 @Component({
   selector: 'app-registro',
@@ -34,54 +33,57 @@ export class RegistroPage {
         message: "Espere por favor...."
       });
       await loader.present();
-
+  
       try {
         if (!this.user.password) {
           this.showToast("Ingrese una contraseña válida.");
           return;
         }
-
+  
         const credential = await this.afAuth.createUserWithEmailAndPassword(this.user.email, this.user.password);
         console.log(credential);
-
+  
         if (credential.user) {
           await this.firestore.collection('users').doc(credential.user.uid).set({
             name: this.user.name,
             lastname: this.user.lastname,
             email: this.user.email,
             phone: this.user.phone,
-            rut: this.user.rut
+            rut: this.user.rut,
+            role: this.user.role // Guardar el rol en Firestore
           });
-
+  
+          // Eliminar la parte del modal
           // Abre el modal con los datos del usuario
-          const modal = await this.modalController.create({
-            component: CredencialesModalComponent,
-            componentProps: {
-              user: {
-                rut: this.user.rut,
-                email: this.user.email,
-                name: this.user.name,
-                lastname: this.user.lastname,
-                phone: this.user.phone
-              }
-            }
-          });
-          await modal.present();
-
-          // Navegar a la página de inicio (si es necesario)
-          this.navCtrl.navigateRoot("home");
-
+          // const modal = await this.modalController.create({
+          //   component: CredencialesModalComponent,
+          //   componentProps: {
+          //     user: {
+          //       rut: this.user.rut,
+          //       email: this.user.email,
+          //       name: this.user.name,
+          //       lastname: this.user.lastname,
+          //       phone: this.user.phone,
+          //       role: this.user.role // Pasar el rol al modal
+          //     }
+          //   }
+          // });
+          // await modal.present();
+  
+          // Navegar directamente a la página de inicio de sesión
+          this.navCtrl.navigateForward("iniciarsesion");
+  
         } else {
           this.showToast("Error al registrar el usuario. Inténtalo de nuevo.");
         }
-
+  
       } catch (error: any) {
         const errorMessage = error.code === 'auth/email-already-in-use' 
             ? 'Este correo ya está en uso. Intenta con otro.' 
             : error.message || 'Error al registrar el usuario. Inténtalo de nuevo.';
         this.showToast(errorMessage);
       }
-
+  
       await loader.dismiss();
     }
   }

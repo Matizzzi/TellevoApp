@@ -1,34 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Publicar Viaje</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Cerrar</ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
   <ion-card class="card-container">
     <ion-card-header>
       <ion-card-title>Publica tu viaje</ion-card-title>
+      <ion-button fill="clear" slot="end" (click)="dismiss()" class="close-btn">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
     </ion-card-header>
     <ion-card-content>
-      <ion-item class="item">
-        <ion-label position="floating">Destino</ion-label>
-        <ion-input type="text" placeholder="Ej. Santiago"></ion-input>
-      </ion-item>
+      <div class="search-bar">
+        <ion-item class="search-item">
+          <ion-label position="floating">Buscar lugar</ion-label>
+          <ion-input 
+            #searchInput 
+            type="text" 
+            placeholder="Ej. Santiago"
+            (ionInput)="onSearchInput($event)">
+          </ion-input>
+        </ion-item>
+      </div>
 
-      <ion-item class="item">
-        <ion-label position="floating">Fecha</ion-label>
-        <ion-input type="date"></ion-input>
-      </ion-item>
-
-      <ion-item class="item">
-        <ion-label position="floating">Descripción</ion-label>
-        <ion-textarea placeholder="Añade una breve descripción sobre el viaje"></ion-textarea>
-      </ion-item>
+      <div id="map" class="map-container"></div>
 
       <ion-button expand="full" color="primary" class="submit-btn">Publicar</ion-button>
+      <ion-button expand="full" color="medium" class="volver-btn" (click)="volver()">Volver</ion-button>
     </ion-card-content>
   </ion-card>
 </ion-content>

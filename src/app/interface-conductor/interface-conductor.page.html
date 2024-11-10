@@ -7,10 +7,14 @@
       <span class="title-white">Tellevo</span><span class="title-yellow">App</span>
     </ion-title>
     <ion-buttons slot="end">
+      <ion-button (click)="openAjustesModal()">
         <ion-icon name="settings"></ion-icon>
+        
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="ion-padding bg-grey">
   <div class="bubble-background"></div>
@@ -21,6 +25,7 @@
     <ion-button expand="full" class="start-button" (click)="openPublicarViajeModal()">Publicar Viaje</ion-button> 
 
     <div class="additional-buttons">
+
       <ion-button expand="full" class="modal-button" (click)="openCredentialsModal()">Credenciales</ion-button>
       <ion-button expand="full" class="modal-button" (click)="openHistoryModal()">Historial</ion-button>
     </div>

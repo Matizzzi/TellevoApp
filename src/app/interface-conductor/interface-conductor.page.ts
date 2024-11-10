@@ -6,7 +6,8 @@ import { User } from '../models/user.module';
 import { Subscription } from 'rxjs';
 import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component';
 import { HistorialModalComponent } from '../historial-modal/historial-modal.component';
-import { PublicarviajeModalComponent } from '../publicarviaje-modal/publicarviaje-modal.component'; // Importar el modal de "Publicar Viaje"
+import { PublicarviajeModalComponent } from '../publicarviaje-modal/publicarviaje-modal.component';
+import { AjustesModalComponent } from '../ajustes-modal/ajustes-modal.component'; // Importar el modal de ajustes
 
 @Component({
   selector: 'app-interface-conductor',
@@ -69,10 +70,16 @@ export class InterfaceConductorPage implements OnInit, OnDestroy {
     await modal.present();
   }
 
-  // Método para abrir el modal de "Publicar Viaje"
   async openPublicarViajeModal() {
     const modal = await this.modalController.create({
-      component: PublicarviajeModalComponent // Asegúrate de que el componente esté creado
+      component: PublicarviajeModalComponent 
+    });
+    await modal.present();
+  }
+
+  async openAjustesModal() {
+    const modal = await this.modalController.create({
+      component: AjustesModalComponent
     });
     await modal.present();
   }

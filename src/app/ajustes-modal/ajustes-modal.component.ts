@@ -10,16 +10,19 @@ export class AjustesModalComponent {
   isDarkMode: boolean;
 
   constructor(private modalController: ModalController) {
+    // Verifica si ya se está en modo oscuro al iniciar el componente
     this.isDarkMode = document.body.classList.contains('dark');
   }
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
+    // Cambia la clase en el cuerpo del documento para aplicar el tema
     document.body.classList.toggle('dark', this.isDarkMode);
+    document.body.classList.toggle('light', !this.isDarkMode);
   }
 
   applyChanges() {
-    // Lógica para aplicar cambios, si es necesario
+    // Aquí puedes agregar lógica si necesitas aplicar algo adicional al guardar cambios
     console.log('Modo oscuro aplicado:', this.isDarkMode);
     this.dismiss();
   }
@@ -28,3 +31,4 @@ export class AjustesModalComponent {
     this.modalController.dismiss();
   }
 }
+  

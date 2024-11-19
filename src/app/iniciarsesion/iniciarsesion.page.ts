@@ -12,6 +12,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 export class IniciarsesionPage implements OnInit {
   user = {} as User;
+  passwordVisible = false; // Variable para manejar la visibilidad de la contraseña
 
   constructor(
     private toastCtrl: ToastController,
@@ -22,6 +23,10 @@ export class IniciarsesionPage implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  togglePasswordVisibility() {
+    this.passwordVisible = !this.passwordVisible;
+  }
 
   async login(user: User) {
     if (this.formValidation()) {
@@ -42,7 +47,7 @@ export class IniciarsesionPage implements OnInit {
             if (userData.exists) {
               const userInfo = userData.data() as User;
 
-              if (userInfo && userInfo.role) { // Cambiado a 'role'
+              if (userInfo && userInfo.role) {
                 if (userInfo.role === "conductor") {
                   this.navCtrl.navigateRoot("interface-conductor");
                 } else if (userInfo.role === "cliente") {

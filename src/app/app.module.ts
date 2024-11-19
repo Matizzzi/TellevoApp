@@ -4,23 +4,25 @@ import { RouteReuseStrategy } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AngularFireModule } from '@angular/fire/compat'; 
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { environment } from '../environments/environment';
 import { FormsModule } from '@angular/forms';
 
 // Importar tus componentes
-import { CredencialesModalComponent } from './credenciales-modal/credenciales-modal.component'; 
+import { CredencialesModalComponent } from './credenciales-modal/credenciales-modal.component';
 import { PublicarviajeModalComponent } from './publicarviaje-modal/publicarviaje-modal.component';
 import { AjustesModalComponent } from './ajustes-modal/ajustes-modal.component';
+import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';  // Asegúrate de importar el nuevo componente
 
 @NgModule({
   declarations: [
     AppComponent,
     CredencialesModalComponent,
     PublicarviajeModalComponent,
-    AjustesModalComponent
+    AjustesModalComponent,
+    BuscarViajeComponent  // Agrega tu componente aquí
   ],
   imports: [
     BrowserModule,

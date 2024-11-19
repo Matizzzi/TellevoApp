@@ -1,11 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AnimationController, ModalController, NavController } from '@ionic/angular';
 import { ClienteService } from '../services/cliente.service';
-import { AuthService } from '../auth.service'; 
+import { AuthService } from '../auth.service';
 import { User } from '../models/user.module';
 import { Subscription } from 'rxjs';
 import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component'; // Ajusta la ruta
 import { HistorialModalComponent } from '../historial-modal/historial-modal.component';
+import { BuscarViajeComponent } from '../buscar-viaje/buscar-viaje.component'; // Asegúrate de importar el modal de Buscar Viaje
 
 @Component({
   selector: 'app-interface',
@@ -53,6 +54,7 @@ export class InterfacePage implements OnInit, OnDestroy {
     }
   }
 
+  // Método para abrir el modal de Credenciales
   async openCredentialsModal() {
     this.animateButton('modal-button');
     const modal = await this.modalController.create({
@@ -62,9 +64,18 @@ export class InterfacePage implements OnInit, OnDestroy {
     await modal.present();
   }
 
+  // Método para abrir el modal de Historial
   async openHistoryModal() {
     const modal = await this.modalController.create({
       component: HistorialModalComponent
+    });
+    await modal.present();
+  }
+
+  // Método para abrir el modal de Buscar Viaje
+  async openBuscarViajeModal() {
+    const modal = await this.modalController.create({
+      component: BuscarViajeComponent
     });
     await modal.present();
   }

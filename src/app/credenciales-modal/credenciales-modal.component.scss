@@ -1,83 +1,82 @@
 .credential-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background-color: #eeeeee; // Fondo Duoc UC claro
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9; /* Fondo claro */
+  padding: 20px;
+}
+
+.credential-card {
+  width: 90%;
+  max-width: 400px;
+  background: linear-gradient(145deg, #ffba08, #3a3a3a); /* Gradiente llamativo */
+  border-radius: 16px;
+  padding: 24px;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.logo-header {
+  width: 100px;
+  margin: 0 auto 16px;
+  display: block;
+  filter: brightness(0) invert(1);
+}
+
+.code-section {
+  margin-top: 16px;
+  font-size: 1rem;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+
+  h2.user-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #ffba08;
+    margin-bottom: 8px;
   }
-  
-  .code-section {
+
+  p {
+    margin: 6px 0;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+  }
+
+  span {
+    font-weight: bold;
+    color: #ffffff;
+  }
+}
+
+.barcode-section {
+  margin-top: 24px;
+  background-color: #ffffff;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .barcode {
     width: 100%;
-    max-width: 400px;
-    background-color: #1A1A1A; // Fondo oscuro
-    color: #FFB800; // Texto en amarillo llamativo
-    padding: 20px;
-    border-radius: 10px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  p {
+    margin-top: 8px;
+    font-size: 0.9rem;
     font-family: 'Courier New', monospace;
-    font-size: 1rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-  
-    &.animated {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    color: #333333;
+    letter-spacing: 1px;
   }
-  
-  .credential-card {
-    max-width: 350px;
-    width: 100%;
-    text-align: center;
-    background-color: #FFFFFF; // Fondo blanco para la tarjeta
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    cursor: pointer;
-  
-    ion-avatar {
-      width: 80px;
-      height: 80px;
-      margin: 0 auto;
-      border: 2px solid #FFB800; // Borde amarillo para destacar
-    }
-  
-    ion-card-title {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: #1A1A1A; // Título en color oscuro
-      margin-top: 10px;
-    }
-  
-    ion-card-subtitle {
-      color: #666666; // Subtítulo gris suave
-      font-size: 1rem;
-    }
-  
-    ion-item {
-      --padding-start: 0;
-      --inner-padding-end: 0;
-      display: flex;
-      align-items: center;
-      text-align: left;
-  
-      ion-icon {
-        color: #FFB800; // Íconos en amarillo para llamar la atención
-        margin-right: 10px;
-      }
-  
-      ion-label {
-        font-weight: bold;
-        color: #666666;
-        margin-right: 10px;
-      }
-  
-      p {
-        font-size: 1rem;
-        color: #1A1A1A;
-      }
-    }
-  }
-  
+}
+
+.back-button {
+  margin-top: 16px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #3a3a3a;
+  --background-hover: #2a2a2a; /* Mejor efecto al pasar el mouse */
+}

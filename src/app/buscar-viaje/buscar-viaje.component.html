@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Buscar Viaje</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="modal-content">
+    <ion-input placeholder="Buscar por destino" [(ngModel)]="searchQuery"></ion-input>
+    <ion-button expand="full" (click)="search()">Buscar</ion-button>
+  </div>
+</ion-content>

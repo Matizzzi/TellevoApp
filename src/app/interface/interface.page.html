@@ -21,10 +21,11 @@
   <div class="bubble-background"></div>
   <div class="welcome-container">
     <h2 class="welcome-title">¡Hola, {{ userData?.name ?? 'Invitado' }}!</h2>
-    <ion-button expand="full" class="start-button">Comenzar Viaje</ion-button> 
+
+    <!-- Botón para abrir el modal de Buscar Viaje -->
+    <ion-button expand="full" class="start-button" (click)="openBuscarViajeModal()">Comenzar Viaje</ion-button>
 
     <div class="additional-buttons">
-      
       <ion-button expand="full" class="modal-button" (click)="openCredentialsModal()">Credenciales</ion-button>
       <ion-button expand="full" class="modal-button" (click)="openHistoryModal()">Historial</ion-button>
     </div>

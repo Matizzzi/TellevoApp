@@ -1,28 +1,63 @@
 <ion-content>
-  <ion-card class="card-container">
-    <ion-card-header>
-      <ion-card-title>Publica tu viaje</ion-card-title>
-      <ion-button fill="clear" slot="end" (click)="dismiss()" class="close-btn">
-        <ion-icon name="close"></ion-icon>
-      </ion-button>
-    </ion-card-header>
+  <!-- Barra de búsqueda -->
+  <ion-item>
+    <ion-label position="floating">Buscar lugar</ion-label>
+    <ion-input 
+      #searchInput 
+      type="text" 
+      (ionInput)="onSearch($event)" 
+      placeholder="">
+    </ion-input>
+  </ion-item>
+
+  <!-- Lista de sugerencias -->
+  <ion-list *ngIf="suggestions.length > 0">
+    <ion-item *ngFor="let suggestion of suggestions" (click)="onPlaceSelected(suggestion)">
+      <ion-label>
+        <h2>{{ suggestion.description }}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <!-- Contenedor del mapa -->
+  <div id="map" style="height: 50%;"></div>
+
+  <!-- Botón para obtener la ruta -->
+  <ion-button *ngIf="selectedPlace" expand="block" (click)="getRoute()">Obtener ruta</ion-button>
+
+  <!-- Formulario para información del viaje -->
+  <ion-card>
+  
+      
     <ion-card-content>
-      <div class="search-bar">
-        <ion-item class="search-item">
-          <ion-label position="floating">Buscar lugar</ion-label>
-          <ion-input 
-            #searchInput 
-            type="text" 
-            placeholder="Ej. Santiago"
-            (ionInput)="onSearchInput($event)">
-          </ion-input>
-        </ion-item>
-      </div>
+      <ion-item>
+        <ion-label position="floating">Modelo del auto</ion-label>
+        <ion-input [(ngModel)]="carModel" ></ion-input>
+      </ion-item>
 
-      <div id="map" class="map-container"></div>
+      <ion-item>
+        <ion-label position="floating">Patente</ion-label>
+        <ion-input [(ngModel)]="carPlate" ></ion-input>
+      </ion-item>
 
-      <ion-button expand="full" color="primary" class="submit-btn">Publicar</ion-button>
-      <ion-button expand="full" color="medium" class="volver-btn" (click)="volver()">Volver</ion-button>
+      <ion-item>
+        <ion-label position="floating">Marca</ion-label>
+        <ion-input [(ngModel)]="carBrand" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Capacidad (personas)</ion-label>
+        <ion-input [(ngModel)]="carCapacity" type="number" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Precio del viaje</ion-label>
+        <ion-input [(ngModel)]="tripPrice" type="number"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="submitTripInfo()">Guardar información del viaje</ion-button>
+      <ion-button expand="block" color="secondary" (click)="goBack()">Volver</ion-button>
+
     </ion-card-content>
   </ion-card>
 </ion-content>

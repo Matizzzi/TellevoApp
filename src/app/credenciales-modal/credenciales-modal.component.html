@@ -1,34 +1,30 @@
 <ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Credenciales</ion-title>
-    <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">Cerrar</ion-button>
-    </ion-buttons>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start"></ion-buttons>
+    <ion-title>Credencial Digital</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="credential-content">
-  <!-- Barra de código con datos de usuario -->
-  <div class="code-section" [class.animated]="isAnimated">
-    <pre class="code">
-      <code>
-        Nombre: {{ user.name }} <br>
-        Apellido: {{ user.lastname }} <br>
-        Email: {{ user.email }} <br>
-        Teléfono: {{ user.phone }} <br>
-        RUT: {{ user.rut }}
-      </code>
-    </pre>
+  <!-- Tarjeta de credencial -->
+  <div class="credential-card">
+    <img src="assets/icon/logoo.png" alt="Logo Institucional" class="logo-header" />
+
+    <div class="code-section">
+      <h2 class="user-name">{{ user.name }} {{ user.lastname }}</h2>
+      <p>Email: <span>{{ user.email }}</span></p>
+      <p>Teléfono: <span>{{ user.phone }}</span></p>
+      <p>RUT: <span>{{ user.rut }}</span></p>
+    </div>
+
+    <div class="barcode-section">
+      <img src="assets/icon/barra.png" alt="Código de barras" class="barcode" />
+      <p>{{ user.rut }}</p>
+    </div>
   </div>
 
-  <!-- Tarjeta de credencial -->
-  <ion-card class="credential-card" (click)="toggleAnimation()">
-    <ion-card-header>
-      <ion-avatar slot="start" class="avatar">
-        <img src="assets/avatar-placeholder.png" alt="Avatar">
-      </ion-avatar>
-      <ion-card-title>{{ user.name }} {{ user.lastname }}</ion-card-title>
-      <ion-card-subtitle>{{ user.email }}</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+  <!-- Botón de volver -->
+  <ion-button expand="block" color="tertiary" (click)="dismiss()" class="back-button">
+    Volver
+  </ion-button>
 </ion-content>

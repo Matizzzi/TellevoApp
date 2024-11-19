@@ -27,6 +27,6 @@ export class CredencialesModalComponent {
   private animateCodeSection() {
     setTimeout(() => {
       this.isAnimated = true;
-    }, 500); // Retraso para la animación inicial
+    }, 500);
   }
 }

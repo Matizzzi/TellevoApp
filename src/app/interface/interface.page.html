@@ -7,10 +7,15 @@
       <span class="title-white">Tellevo</span><span class="title-yellow">App</span>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button class="head">
+      <ion-button class="header-button" (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
+    <ion-buttons slot="end">
+      <ion-button (click)="openAjustesModal()">
         <ion-icon name="settings"></ion-icon>
       </ion-button>
-    </ion-buttons>
+    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
   </ion-toolbar>
 </ion-header>
 

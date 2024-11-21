@@ -15,6 +15,7 @@ import { CredencialesModalComponent } from './credenciales-modal/credenciales-mo
 import { PublicarviajeModalComponent } from './publicarviaje-modal/publicarviaje-modal.component';
 import { AjustesModalComponent } from './ajustes-modal/ajustes-modal.component';
 import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';  // Asegúrate de importar el nuevo componente
+import { HistorialModalComponent } from './historial-modal/historial-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';  /
     CredencialesModalComponent,
     PublicarviajeModalComponent,
     AjustesModalComponent,
-    BuscarViajeComponent  // Agrega tu componente aquí
+    BuscarViajeComponent,
+    HistorialModalComponent // Agrega este componente
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,6 @@ import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';  /
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Asegúrate de incluir esto
 })
-export class AppModule { }
+export class AppModule {}

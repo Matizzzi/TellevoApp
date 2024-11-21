@@ -1,3 +1,29 @@
-<p>
-  historial-modal works!
-</p>
+<ion-header class="bg-dark">
+  <ion-toolbar>
+    <ion-title class="text-white">Historial de Viajes</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()" class="text-white">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-dark text-white">
+  <div class="container">
+    <ion-card *ngIf="viaje" class="card-animated">
+      <ion-card-header>
+        <ion-card-title class="text-orange">Viaje por tomar</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong class="text-grey">Nombre:</strong> {{ viaje.nombre }} {{ viaje.apellido }}</p>
+        <p><strong class="text-grey">Modelo:</strong> {{ viaje.modelo }}</p>
+        <p><strong class="text-grey">Marca:</strong> {{ viaje.marca }}</p>
+        <p><strong class="text-grey">Patente:</strong> {{ viaje.patente }}</p>
+        <p><strong class="text-grey">Capacidad:</strong> {{ viaje.capacidad }} personas</p>
+        <p><strong class="text-grey">Precio:</strong> <span class="text-orange">${{ viaje.precio }}</span></p>
+        <p><strong class="text-grey">Lugar:</strong> {{ viaje.lugar }}</p>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

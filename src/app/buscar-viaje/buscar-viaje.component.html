@@ -1,17 +1,38 @@
-<ion-header>
+<ion-header class="bg-dark">
   <ion-toolbar>
-    <ion-title>Buscar Viaje</ion-title>
+    <ion-title class="text-white">Buscar Viaje</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="dismiss()">
+      <ion-button (click)="dismiss()" class="text-white">
         <ion-icon name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="bg-dark text-white">
   <div class="modal-content">
-    <ion-input placeholder="Buscar por destino" [(ngModel)]="searchQuery"></ion-input>
-    <ion-button expand="full" (click)="search()">Buscar</ion-button>
+    <ion-list>
+      <ion-item *ngFor="let viaje of viajes" class="card-item">
+        <ion-label>
+          <h2 class="text-orange">{{ viaje.nombre }} {{ viaje.apellido }}</h2>
+          <h3 class="text-grey">{{ viaje.modelo }} - {{ viaje.marca }}</h3>
+          <p class="text-grey">Patente: {{ viaje.patente }}</p>
+          <p>Capacidad: {{ viaje.capacidad }} personas</p>
+          <p>Precio: <span class="text-orange">${{ viaje.precio }}</span></p>
+          <p>Lugar: {{ viaje.lugar }}</p>
+        </ion-label>
+
+        <!-- Animación de aceptación -->
+        <div *ngIf="viaje.aceptado" class="success-animation">
+          <ion-icon name="checkmark-circle-outline" color="success" size="large"></ion-icon>
+          <p class="text-success">¡Viaje aceptado!</p>
+        </div>
+
+        <ng-container *ngIf="!viaje.aceptado">
+          <ion-button color="success" (click)="accept(viaje)" class="btn-animated">Aceptar</ion-button>
+          <ion-button color="danger" (click)="reject(viaje)" class="btn-animated">Rechazar</ion-button>
+        </ng-container>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

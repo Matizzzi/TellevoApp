@@ -5,6 +5,9 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';  // Importa A
   providedIn: 'root'
 })
 export class ViajeService {
+  agregarViajeAceptado(viaje: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private firestore: AngularFirestore) { }
 

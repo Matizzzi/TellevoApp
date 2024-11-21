@@ -25,35 +25,57 @@
   <!-- Botón para obtener la ruta -->
   <ion-button *ngIf="selectedPlace" expand="block" (click)="getRoute()">Obtener ruta</ion-button>
 
-  <!-- Formulario para información del viaje -->
-  <ion-card>
-  
-      
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Modelo del auto</ion-label>
-        <ion-input [(ngModel)]="carModel" ></ion-input>
-      </ion-item>
+<!-- Formulario para información del viaje -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-title>Información del Viaje</ion-card-title>
+    <ion-card-subtitle>Por favor, completa los datos del vehículo y del viaje.</ion-card-subtitle>
+  </ion-card-header>
 
-      <ion-item>
-        <ion-label position="floating">Patente</ion-label>
-        <ion-input [(ngModel)]="carPlate" ></ion-input>
-      </ion-item>
+  <ion-card-content>
+    <!-- Campo Nombre -->
+    <ion-item>
+      <ion-label position="stacked">Nombre</ion-label>
+      <ion-input [(ngModel)]="nombre" placeholder="Ingresa tu nombre"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Marca</ion-label>
-        <ion-input [(ngModel)]="carBrand" ></ion-input>
-      </ion-item>
+    <!-- Campo Apellido -->
+    <ion-item>
+      <ion-label position="stacked">Apellido</ion-label>
+      <ion-input [(ngModel)]="apellido" placeholder="Ingresa tu apellido"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Capacidad (personas)</ion-label>
-        <ion-input [(ngModel)]="carCapacity" type="number" ></ion-input>
-      </ion-item>
+    <!-- Campo Modelo del auto -->
+    <ion-item>
+      <ion-label position="stacked">Modelo del auto</ion-label>
+      <ion-input [(ngModel)]="carModel" placeholder="Ejemplo: Corolla"></ion-input>
+    </ion-item>
 
-      <ion-item>
-        <ion-label position="floating">Precio del viaje</ion-label>
-        <ion-input [(ngModel)]="tripPrice" type="number"></ion-input>
-      </ion-item>
+    <!-- Campo Patente -->
+    <ion-item>
+      <ion-label position="stacked">Patente</ion-label>
+      <ion-input [(ngModel)]="carPlate" placeholder="Ejemplo: ABC-123"></ion-input>
+    </ion-item>
+
+    <!-- Campo Marca -->
+    <ion-item>
+      <ion-label position="stacked">Marca</ion-label>
+      <ion-input [(ngModel)]="carBrand" placeholder="Ejemplo: Toyota"></ion-input>
+    </ion-item>
+
+    <!-- Campo Capacidad -->
+    <ion-item>
+      <ion-label position="stacked">Capacidad (personas)</ion-label>
+      <ion-input [(ngModel)]="carCapacity" type="number" placeholder="Ejemplo: 5"></ion-input>
+    </ion-item>
+
+    <!-- Campo Precio -->
+    <ion-item>
+      <ion-label position="stacked">Precio del viaje</ion-label>
+      <ion-input [(ngModel)]="tripPrice" type="number" placeholder="Ejemplo: 10000"></ion-input>
+    </ion-item>
+
+
 
       <ion-button expand="block" (click)="submitTripInfo()">Guardar información del viaje</ion-button>
       <ion-button expand="block" color="secondary" (click)="goBack()">Volver</ion-button>

@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { ViajeService } from '../viaje.service'; // Importa el servicio
+import { ModalController } from '@ionic/angular';
 
 declare var google: any;
 
@@ -15,6 +16,8 @@ export class PublicarviajeModalComponent implements OnInit {
   carBrand: string = '';
   carCapacity: number | null = null;
   tripPrice: number | null = null;
+  nombre: string = ''; // Nuevo campo
+  apellido: string = ''; // Nuevo campo
 
   map: any;
   autocomplete: any;
@@ -25,10 +28,12 @@ export class PublicarviajeModalComponent implements OnInit {
   selectedPlace: any;
 
   @ViewChild('searchInput', { static: true }) searchInput!: ElementRef;
+  showToast: boolean = false;
 
   constructor(
     private router: Router,
-    private viajeService: ViajeService // Inyecta el servicio
+    private viajeService: ViajeService, // Inyecta el servicio
+    private modalController: ModalController
   ) {}
 
   ngOnInit() {
@@ -159,7 +164,15 @@ export class PublicarviajeModalComponent implements OnInit {
 
   // Método para guardar la información del viaje
   submitTripInfo() {
-    if (!this.carModel || !this.carPlate || !this.carBrand || !this.carCapacity || !this.tripPrice) {
+    if (
+      !this.carModel ||
+      !this.carPlate ||
+      !this.carBrand ||
+      !this.carCapacity ||
+      !this.tripPrice ||
+      !this.nombre || // Validación del nuevo campo
+      !this.apellido  // Validación del nuevo campo
+    ) {
       alert('Por favor, completa toda la información del viaje.');
       return;
     }
@@ -170,14 +183,32 @@ export class PublicarviajeModalComponent implements OnInit {
       marca: this.carBrand,
       capacidad: this.carCapacity,
       precio: this.tripPrice,
-      lugar: this.selectedPlace ? this.selectedPlace.name : ''
+      lugar: this.selectedPlace ? this.selectedPlace.name : '',
+      nombre: this.nombre, // Incluye el nombre
+      apellido: this.apellido, //
     };
 
-    this.viajeService.guardarViaje(viaje); // Llamamos al servicio para guardar el viaje
-    alert('Información del viaje guardada correctamente.');
+    this.viajeService
+      .guardarViaje(viaje) // Llamamos al servicio para guardar el viaje
+      .then(() => {
+        this.showToast = true;
+        alert('Información del viaje guardada correctamente.');
+
+        // Mostrar el toast antes de cerrar
+        setTimeout(() => {
+          this.modalController.dismiss(); // Cierra el modal después de mostrar el toast
+        }, 2000); // Tiempo suficiente para que el toast se muestre
+      })
+      .catch((error) => {
+        console.error('Error al guardar el viaje:', error);
+        alert('Hubo un problema al guardar el viaje. Por favor, intenta nuevamente.');
+      });
   }
 
   goBack() {
-    this.router.navigate(['interface-conductor']);
+    // Cierra el modal antes de navegar
+    this.modalController.dismiss().then(() => {
+      this.router.navigate(['interface-conductor']);
+    });
   }
 }

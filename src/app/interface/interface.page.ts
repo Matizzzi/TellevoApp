@@ -4,9 +4,10 @@ import { ClienteService } from '../services/cliente.service';
 import { AuthService } from '../auth.service';
 import { User } from '../models/user.module';
 import { Subscription } from 'rxjs';
-import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component'; // Ajusta la ruta
+import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component';
 import { HistorialModalComponent } from '../historial-modal/historial-modal.component';
-import { BuscarViajeComponent } from '../buscar-viaje/buscar-viaje.component'; // Asegúrate de importar el modal de Buscar Viaje
+import { BuscarViajeComponent } from '../buscar-viaje/buscar-viaje.component';
+import { AjustesModalComponent } from '../ajustes-modal/ajustes-modal.component';  // Importa el componente de ajustes
 
 @Component({
   selector: 'app-interface',
@@ -80,6 +81,14 @@ export class InterfacePage implements OnInit, OnDestroy {
     await modal.present();
   }
 
+  // Método para abrir el modal de Ajustes
+  async openAjustesModal() {
+    const modal = await this.modalController.create({
+      component: AjustesModalComponent,  // El componente de ajustes
+    });
+    await modal.present();
+  }
+
   private animateButton(buttonClass: string) {
     const button = document.querySelector(`.${buttonClass}`);
     if (button) {
@@ -100,5 +109,9 @@ export class InterfacePage implements OnInit, OnDestroy {
   async logout() {
     await this.authService.logout();
     this.navCtrl.navigateRoot('/iniciarsesion'); // Redirige a la página de inicio de sesión
+  }
+  redirectToColocolo() {
+    // Redirige a la URL deseada
+    window.location.href = 'https://www.colocolo.cl/';
   }
 }

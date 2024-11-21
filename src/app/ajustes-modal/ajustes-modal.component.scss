@@ -1,0 +1,89 @@
+/* Estilos generales */
+ion-item {
+    --background: #f8f8f8;
+    --border-color: #e0e0e0;
+    --color: #333;
+    padding: 15px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .settings-list {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .settings-item {
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .settings-item:hover {
+    transform: scale(1.03);
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .setting-toggle {
+    --background: #d3d3d3;
+    --background-checked: #4caf50;
+    --handle-background: #ffffff;
+  }
+  
+  /* Personalización del encabezado */
+  ion-toolbar {
+    --background: #6200ea;
+    --color: white;
+  }
+  
+  /* Personalización del pie de página */
+  ion-footer {
+    --background: #6200ea;
+  }
+  
+  ion-button {
+    --color: white;
+    border-radius: 20px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  
+  .apply-button {
+    background-color: #ff9800;
+    --background: #ff9800;
+    &:hover {
+      background-color: #e68900;
+    }
+  }
+  
+  /* Animación de deslizamiento */
+  ion-content {
+    animation: slideIn 0.5s ease-in-out;
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Estilos de texto */
+  ion-label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Estilo de los toggles */
+  ion-toggle {
+    --handle-background: #ffffff;
+    --background: rgba(0, 0, 0, 0.1);
+    --background-checked: #4caf50;
+  }
+  

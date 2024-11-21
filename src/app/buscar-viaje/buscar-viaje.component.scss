@@ -1,0 +1,62 @@
+/* Paleta de colores */
+.bg-dark {
+    background-color: rgba(26, 26, 26, 1);
+  }
+  .text-white {
+    color: rgba(255, 255, 255, 1);
+  }
+  .text-orange {
+    color: rgba(255, 184, 0, 1);
+  }
+  .text-grey {
+    color: rgba(102, 102, 102, 1);
+  }
+  .text-success {
+    color: rgba(255, 184, 0, 1);
+  }
+  
+  /* Botones con animación */
+  .btn-animated {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  .btn-animated:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 184, 0, 0.8);
+  }
+  
+  /* Tarjetas */
+  .card-item {
+    background-color: rgba(26, 26, 26, 1);
+    border: 1px solid rgba(102, 102, 102, 1);
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  .card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(255, 184, 0, 0.5);
+  }
+  
+  /* Animación de éxito */
+  .success-animation {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Listas */
+  ion-list {
+    margin: 10px;
+  }
+  

@@ -7,23 +7,43 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./ajustes-modal.component.scss'],
 })
 export class AjustesModalComponent {
-  isDarkMode: boolean;
+  isDarkMode: boolean = false;
+  notificationsEnabled: boolean = true;
+  locationEnabled: boolean = true;
+  soundEnabled: boolean = true;
+  privacyEnabled: boolean = true;
+  selectedLanguage: string = 'es'; // Predeterminado en español
 
-  constructor(private modalController: ModalController) {
-    // Verifica si ya se está en modo oscuro al iniciar el componente
-    this.isDarkMode = document.body.classList.contains('dark');
-  }
+  constructor(private modalController: ModalController) {}
 
   toggleDarkMode() {
     this.isDarkMode = !this.isDarkMode;
-    // Cambia la clase en el cuerpo del documento para aplicar el tema
     document.body.classList.toggle('dark', this.isDarkMode);
-    document.body.classList.toggle('light', !this.isDarkMode);
+  }
+
+  toggleNotifications() {
+    console.log('Notificaciones habilitadas:', this.notificationsEnabled);
+  }
+
+  toggleLocation() {
+    console.log('Ubicación habilitada:', this.locationEnabled);
+  }
+
+  toggleSound() {
+    console.log('Sonido habilitado:', this.soundEnabled);
+  }
+
+  togglePrivacy() {
+    console.log('Privacidad habilitada:', this.privacyEnabled);
+  }
+
+  changeLanguage() {
+    console.log('Idioma cambiado a:', this.selectedLanguage);
   }
 
   applyChanges() {
-    // Aquí puedes agregar lógica si necesitas aplicar algo adicional al guardar cambios
-    console.log('Modo oscuro aplicado:', this.isDarkMode);
+    // Lógica para aplicar cambios adicionales si es necesario
+    console.log('Cambios aplicados');
     this.dismiss();
   }
 
@@ -31,4 +51,3 @@ export class AjustesModalComponent {
     this.modalController.dismiss();
   }
 }
-  

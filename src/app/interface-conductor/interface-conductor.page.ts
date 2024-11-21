@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AnimationController, ModalController } from '@ionic/angular';
+import { AnimationController, ModalController, NavController } from '@ionic/angular';  // Asegúrate de importar NavController
 import { ClienteService } from '../services/cliente.service';
 import { AuthService } from '../auth.service'; 
 import { User } from '../models/user.module';
@@ -23,7 +23,8 @@ export class InterfaceConductorPage implements OnInit, OnDestroy {
     private animationCtrl: AnimationController,
     private clienteService: ClienteService,
     private authService: AuthService,
-    private modalController: ModalController 
+    private modalController: ModalController,
+    private navCtrl: NavController  // Asegúrate de inyectar NavController
   ) {}
 
   ngOnInit() {
@@ -98,5 +99,11 @@ export class InterfaceConductorPage implements OnInit, OnDestroy {
         ]);
       animation.play();
     }
+  }
+
+  // Método de logout ahora marcado como async
+  async logout() {
+    await this.authService.logout();  // Llamar al servicio de logout
+    this.navCtrl.navigateRoot('/iniciarsesion');  // Redirigir a la página de inicio de sesión
   }
 }

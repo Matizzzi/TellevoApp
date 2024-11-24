@@ -21,14 +21,19 @@
           <p>Precio: <span class="text-orange">${{ viaje.precio }}</span></p>
           <p>Lugar: {{ viaje.lugar }}</p>
         </ion-label>
-
-        <!-- Animación de aceptación -->
+      
+        <!-- Animación al aceptar/rechazar -->
         <div *ngIf="viaje.aceptado" class="success-animation">
-          <ion-icon name="checkmark-circle-outline" color="success" size="large"></ion-icon>
+          <ion-icon name="checkmark-circle-outline" class="icon-success"></ion-icon>
           <p class="text-success">¡Viaje aceptado!</p>
         </div>
-
-        <ng-container *ngIf="!viaje.aceptado">
+      
+        <div *ngIf="viaje.rechazado" class="error-animation">
+          <ion-icon name="trash-bin-outline" class="icon-error"></ion-icon>
+          <p class="text-error">¡Viaje rechazado!</p>
+        </div>
+      
+        <ng-container *ngIf="!viaje.aceptado && !viaje.rechazado">
           <ion-button color="success" (click)="accept(viaje)" class="btn-animated">Aceptar</ion-button>
           <ion-button color="danger" (click)="reject(viaje)" class="btn-animated">Rechazar</ion-button>
         </ng-container>

@@ -40,39 +40,47 @@ export class BuscarViajeComponent implements OnInit {
   }
 
   cargarViajes() {
-    // Usamos el nombre del conductor (usuario) para obtener los viajes
-    this.viajeService.obtenerViajesDelConductor(this.usuario.nombre).subscribe((viajes: any[]) => {
+    this.viajeService.obtenerViajes().subscribe((viajes: any[]) => {
       this.viajes = viajes;
     });
   }
+  
 
   async accept(viaje: any) {
     if (viaje.estado === 'tomado') {
       console.log('Este viaje ya está tomado.');
       return;
     }
-
+  
     viaje.estado = 'tomado';
+    viaje.aceptado = true; // Agrega esta propiedad para mostrar la animación de aceptación
     viaje.usuario = this.usuario;
-
+  
+    // Agrega el viaje aceptado al historial
     this.historialService.agregarAlHistorial(viaje);
-
+  
+    await this.viajeService.aceptarViaje(viaje.id, this.usuario.nombre);
+  
     setTimeout(async () => {
       this.viajes = this.viajes.filter((v) => v !== viaje);
-
+  
       const modal = await this.modalController.create({
         component: HistorialModalComponent,
         componentProps: {
           viaje: viaje,
         },
       });
-
+  
       await modal.present();
     }, 2000);
   }
-
+  
+  
   reject(viaje: any) {
+    // Elimina el viaje rechazado de la lista
     this.viajes = this.viajes.filter((v) => v !== viaje);
+  
     console.log('Viaje rechazado:', viaje);
   }
+  
 }

@@ -1,44 +1,96 @@
+/* Fondo con animación de gradiente */
+.login-background {
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  animation: gradientShift 6s ease infinite;
+  color: white;
+  height: 100%;
+}
+
+/* Animación para gradiente */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor centrado */
 .login-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Logo fijo */
+.logo-header {
+  width: 120px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Estilo de la tarjeta */
+.custom-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  color: black;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
-  
-  .custom-card {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: bold;
-    color: #ffffff;
+}
+
+/* Texto principal */
+h2 {
+  text-align: center;
+  font-weight: bold;
+  color: white;
+}
+
+/* Botón animado */
+ion-button {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ion-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Efecto clic en botón */
+ion-button.clicked {
+  animation: buttonClick 0.2s ease;
+}
+
+@keyframes buttonClick {
+  0% {
+    transform: scale(1);
   }
-  
-  .logo-header {
-    height: 50px;
+  50% {
+    transform: scale(0.95);
   }
-  
-  .register-text {
-    text-align: center;
-    margin-top: 10px;
+  100% {
+    transform: scale(1);
   }
-  
-  .register-link {
-    color: var(--ion-color-primary);
-    text-decoration: none;
-  }
-  
-  a {
-    color: #007aff;
-  }
-  
-  .ion-margin-top {
-    margin-top: 20px;
-  }
+}

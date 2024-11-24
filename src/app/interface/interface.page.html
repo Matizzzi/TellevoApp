@@ -7,17 +7,21 @@
       <span class="title-white">Tellevo</span><span class="title-yellow">App</span>
     </ion-title>
     <ion-buttons slot="end">
-      <ion-button class="header-button" (click)="logout()">
+      <!-- Al hacer clic en este botón, se mostrará la alerta de confirmación -->
+      <ion-button class="header-button" (click)="presentAlert()">
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
-    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
+    </ion-buttons>
+
+    <!-- Botón para abrir el modal de ajustes -->
     <ion-buttons slot="end">
       <ion-button (click)="openAjustesModal()">
         <ion-icon name="settings"></ion-icon>
       </ion-button>
-    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content class="ion-padding bg-grey">
   <div class="bubble-background"></div>

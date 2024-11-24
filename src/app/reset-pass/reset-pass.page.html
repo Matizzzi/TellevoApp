@@ -6,18 +6,24 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding login-background">
   <div class="login-container">
-    <h2>Recuperar contraseña</h2>
+    <h2>Recuperar Contraseña</h2>
 
-    <ion-card class="custom-card">
+    <ion-card class="custom-card animated-card">
       <ion-card-content>
         <ion-item lines="none">
-          <ion-label position="stacked">Correo electrónico</ion-label>
+          <ion-label position="stacked">Correo Electrónico</ion-label>
           <ion-input placeholder="Ingresa tu correo" type="email" [(ngModel)]="user.email"></ion-input>
         </ion-item>
 
-        <ion-button expand="block" color="primary" (click)="resetPassword(user.email)">Enviar</ion-button>
+        <ion-button 
+          id="send-button" 
+          expand="block" 
+          color="primary" 
+          (click)="handleButtonClick(user.email)">
+          Enviar
+        </ion-button>
 
         <div class="ion-text-center ion-margin-top">
           <a routerLink="/iniciarsesion"><small class="back-link">Volver al inicio de sesión</small></a>

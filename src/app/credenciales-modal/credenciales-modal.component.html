@@ -1,23 +1,19 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-buttons slot="start"></ion-buttons>
-    <ion-title>Credencial Digital</ion-title>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content class="credential-content">
   <!-- Tarjeta de credencial -->
-  <div class="credential-card">
+  <div class="credential-card" [ngClass]="{'animate-card': isAnimated}">
     <img src="assets/icon/logoo.png" alt="Logo Institucional" class="logo-header" />
 
-    <div class="code-section">
+    <div class="code-section" [ngClass]="{'animate-code': isAnimated}">
       <h2 class="user-name">{{ user.name }} {{ user.lastname }}</h2>
       <p>Email: <span>{{ user.email }}</span></p>
       <p>Teléfono: <span>{{ user.phone }}</span></p>
       <p>RUT: <span>{{ user.rut }}</span></p>
     </div>
 
-    <div class="barcode-section">
+    <div class="barcode-section" [ngClass]="{'animate-barcode': isAnimated}">
       <img src="assets/icon/barra.png" alt="Código de barras" class="barcode" />
       <p>{{ user.rut }}</p>
     </div>

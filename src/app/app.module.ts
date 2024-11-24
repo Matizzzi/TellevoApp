@@ -14,8 +14,12 @@ import { FormsModule } from '@angular/forms';
 import { CredencialesModalComponent } from './credenciales-modal/credenciales-modal.component';
 import { PublicarviajeModalComponent } from './publicarviaje-modal/publicarviaje-modal.component';
 import { AjustesModalComponent } from './ajustes-modal/ajustes-modal.component';
-import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';  // Asegúrate de importar el nuevo componente
+import { BuscarViajeComponent } from './buscar-viaje/buscar-viaje.component';
 import { HistorialModalComponent } from './historial-modal/historial-modal.component';
+import { ConductorComponent } from './conductor/conductor.component'; // Asegúrate de que la ruta sea correcta
+
+// Importa el módulo que contiene el componente QrScannerPage
+import { QrScannerPageModule } from './qr-scanner/qr-scanner.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { HistorialModalComponent } from './historial-modal/historial-modal.compo
     PublicarviajeModalComponent,
     AjustesModalComponent,
     BuscarViajeComponent,
-    HistorialModalComponent // Agrega este componente
+    HistorialModalComponent,
+    ConductorComponent,  // Agrega este componente
+    // QrScannerPage está incluido dentro del QrScannerPageModule, no lo declares aquí
   ],
   imports: [
     BrowserModule,
@@ -33,12 +39,13 @@ import { HistorialModalComponent } from './historial-modal/historial-modal.compo
     AngularFireModule.initializeApp(environment.FIREBASE_CONFIG),
     AngularFireAuthModule,
     GoogleMapsModule,
-    FormsModule
+    FormsModule,
+    QrScannerPageModule // Solo importa el módulo aquí
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA] // Asegúrate de incluir esto
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule {}

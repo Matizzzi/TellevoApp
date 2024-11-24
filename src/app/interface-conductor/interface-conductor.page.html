@@ -10,12 +10,12 @@
       <ion-button class="header-button" (click)="logout()">
         <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
-    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
+    </ion-buttons>
     <ion-buttons slot="end">
       <ion-button (click)="openAjustesModal()">
         <ion-icon name="settings"></ion-icon>
       </ion-button>
-    </ion-buttons> <!-- Cierre adecuado de ion-buttons -->
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -24,14 +24,18 @@
   <div class="welcome-container">
     <h2 class="welcome-title">¡Hola, {{ userData?.name ?? 'Invitado' }}!</h2>
     <p class="careful-message">Maneja con cuidado</p>
-    <!-- Usar 'Invitado' como valor por defecto -->
-    <ion-button expand="full" class="start-button" (click)="openPublicarViajeModal()">Publicar Viaje</ion-button> 
+    <ion-button expand="full" class="start-button" (click)="openPublicarViajeModal()">Publicar Viaje</ion-button>
 
     <div class="additional-buttons">
       <ion-button expand="full" class="modal-button" (click)="openCredentialsModal()">Credenciales</ion-button>
-      <ion-button expand="full" class="modal-button" (click)="openHistoryModal()">Historial</ion-button>
+      <!-- Cambié el modal de historial por el Conductor -->
+      <ion-button expand="full" class="modal-button" (click)="openConductorModal()">Historial Conductor</ion-button>
+      <ion-button expand="full" class="modal-button" (click)="openQRModal()">
+        Escanear QR
+      </ion-button>
+      
     </div>
-    
+
     <div class="promo-box">
       <h3>¡Califica la app!</h3>
       <p>Tu opinión es importante. ¡Déjanos tus comentarios!</p>

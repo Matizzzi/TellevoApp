@@ -20,13 +20,9 @@ export class CredencialesModalComponent {
     this.modalController.dismiss();
   }
 
-  toggleAnimation() {
-    this.isAnimated = !this.isAnimated;
-  }
-
   private animateCodeSection() {
     setTimeout(() => {
       this.isAnimated = true;
-    }, 500);
+    }, 500); // Espera 500ms antes de mostrar la animación
   }
 }

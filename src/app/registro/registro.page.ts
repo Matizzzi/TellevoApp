@@ -13,16 +13,29 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class RegistroPage {
   user = {} as User;
 
+  // Variables para controlar la visibilidad de contraseñas
+  showPassword: boolean = false;
+  showConfirmPassword: boolean = false;
+
   constructor(
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
     private afAuth: AngularFireAuth,
     private navCtrl: NavController,
     private firestore: AngularFirestore,
-    private modalController: ModalController // Asegúrate de importar ModalController
+    private modalController: ModalController
   ) {}
 
-  // Método para navegar a otra página
+  // Método para alternar la visibilidad de la contraseña
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
+  // Método para alternar la visibilidad de la confirmación de contraseña
+  toggleConfirmPasswordVisibility() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
+
   irAInicioSesion() {
     this.navCtrl.navigateForward('iniciarsesion');
   }
@@ -50,27 +63,8 @@ export class RegistroPage {
             email: this.user.email,
             phone: this.user.phone,
             rut: this.user.rut,
-            role: this.user.role // Guardar el rol en Firestore
+            role: this.user.role
           });
-  
-          // Eliminar la parte del modal
-          // Abre el modal con los datos del usuario
-          // const modal = await this.modalController.create({
-          //   component: CredencialesModalComponent,
-          //   componentProps: {
-          //     user: {
-          //       rut: this.user.rut,
-          //       email: this.user.email,
-          //       name: this.user.name,
-          //       lastname: this.user.lastname,
-          //       phone: this.user.phone,
-          //       role: this.user.role // Pasar el rol al modal
-          //     }
-          //   }
-          // });
-          // await modal.present();
-  
-          // Navegar directamente a la página de inicio de sesión
           this.navCtrl.navigateForward("iniciarsesion");
   
         } else {
@@ -113,13 +107,11 @@ export class RegistroPage {
       this.showToast("El RUT debe tener un formato válido (XXXXXXX-X)");
       return false;
     }
-    // Validar formato de correo
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!emailPattern.test(this.user.email)) {
       this.showToast("Ingrese un correo válido");
       return false;
     }
-    // Validar longitud de contraseña
     if (this.user.password.length < 6) {
       this.showToast("La contraseña debe tener al menos 6 caracteres");
       return false;

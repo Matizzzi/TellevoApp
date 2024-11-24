@@ -12,6 +12,7 @@ import { HistorialService } from '../historial.service'; // Importamos el servic
 export class BuscarViajeComponent implements OnInit {
   searchQuery: string = '';
   viajes: any[] = [];
+  usuario: any; // Asegúrate de que esta propiedad se haya definido como lo vimos antes.
 
   constructor(
     private modalController: ModalController,
@@ -20,6 +21,7 @@ export class BuscarViajeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.obtenerUsuario();
     this.cargarViajes();
   }
 
@@ -33,30 +35,35 @@ export class BuscarViajeComponent implements OnInit {
     );
   }
 
+  obtenerUsuario() {
+    this.usuario = { nombre: 'Juan Perez' }; // O puedes obtener el nombre desde un servicio de autenticación
+  }
+
   cargarViajes() {
-    this.viajeService.obtenerViajes().subscribe((viajes: any[]) => {
+    // Usamos el nombre del conductor (usuario) para obtener los viajes
+    this.viajeService.obtenerViajesDelConductor(this.usuario.nombre).subscribe((viajes: any[]) => {
       this.viajes = viajes;
     });
   }
 
   async accept(viaje: any) {
-    viaje.aceptado = true;
+    if (viaje.estado === 'tomado') {
+      console.log('Este viaje ya está tomado.');
+      return;
+    }
 
-    // Guardamos el viaje en el historial usando el servicio
+    viaje.estado = 'tomado';
+    viaje.usuario = this.usuario;
+
     this.historialService.agregarAlHistorial(viaje);
 
     setTimeout(async () => {
-      // Remover el viaje de la lista principal
       this.viajes = this.viajes.filter((v) => v !== viaje);
 
-      // Abrir el historial modal con el viaje aceptado
       const modal = await this.modalController.create({
         component: HistorialModalComponent,
         componentProps: {
-          viaje: {
-            ...viaje,
-            estado: 'Viaje por tomar',
-          },
+          viaje: viaje,
         },
       });
 

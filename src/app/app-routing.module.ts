@@ -35,6 +35,10 @@ const routes: Routes = [
     path: 'interface-conductor',
     loadChildren: () => import('./interface-conductor/interface-conductor.module').then(m => m.InterfaceConductorPageModule),
   },
+  {
+    path: 'qr-scanner',
+    loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+  },
   
 
 

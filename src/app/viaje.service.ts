@@ -1,23 +1,70 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';  // Importa AngularFirestore
+import { of } from 'rxjs'; // Importa 'of' de RxJS
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ViajeService {
-  agregarViajeAceptado(viaje: any) {
-    throw new Error('Method not implemented.');
-  }
+  private viajes: any[] = []; // Aquí guardaremos los viajes
+  private viajesAceptados: any[] = []; // Viajes aceptados por los pasajeros
 
-  constructor(private firestore: AngularFirestore) { }
+  constructor() {}
 
-  // Guarda un nuevo viaje en Firestore
+  /**
+   * Método para guardar un viaje
+   * @param viaje Objeto que contiene la información del viaje
+   * @returns Promesa que resuelve con el viaje guardado o un error
+   */
   guardarViaje(viaje: any) {
-    return this.firestore.collection('viajes').add(viaje);  // Guarda en la colección 'viajes'
+    return new Promise((resolve, reject) => {
+      try {
+        this.viajes.push(viaje); // Guardamos el viaje en el array
+        resolve(viaje);
+      } catch (error) {
+        reject('Error al guardar el viaje');
+      }
+    });
   }
 
-  // Obtiene todos los viajes guardados desde Firestore
+  /**
+   * Método para obtener todos los viajes
+   * @returns Observable que emite la lista de todos los viajes
+   */
   obtenerViajes() {
-    return this.firestore.collection('viajes').valueChanges();  // Obtiene los viajes
+    return of(this.viajes); // Convertimos el array en un observable
   }
+
+  /**
+   * Método para obtener los viajes de un conductor específico
+   * @param conductorNombre Nombre del conductor
+   * @returns Observable que emite los viajes filtrados por conductor
+   */
+  obtenerViajesDelConductor(conductorNombre: string) {
+    return of(this.viajes.filter(viaje => viaje.nombre === conductorNombre)); // Filtramos los viajes por el nombre del conductor
+  }
+
+  /**
+   * Método para aceptar un viaje por un pasajero
+   * @param viajeId ID del viaje
+   * @param pasajeroNombre Nombre del pasajero que acepta el viaje
+   * @returns Boolean indicando si el viaje fue aceptado
+   */
+  aceptarViaje(viajeId: string, pasajeroNombre: string) {
+    const viaje = this.viajes.find(v => v.id === viajeId);
+    if (viaje) {
+      viaje.aceptadoPor = pasajeroNombre; // Establecemos el pasajero que acepta el viaje
+      this.viajesAceptados.push(viaje); // Lo agregamos a la lista de viajes aceptados
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Método para obtener los viajes aceptados
+   * @returns Array con los viajes aceptados
+   */
+  obtenerViajesAceptados() {
+    return this.viajesAceptados; // Retorna los viajes que han sido aceptados
+  }
+  
 }

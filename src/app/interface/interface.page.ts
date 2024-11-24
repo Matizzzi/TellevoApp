@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AnimationController, ModalController, NavController } from '@ionic/angular';
+import { AnimationController, ModalController, NavController, AlertController } from '@ionic/angular';
 import { ClienteService } from '../services/cliente.service';
 import { AuthService } from '../auth.service';
 import { User } from '../models/user.module';
@@ -7,7 +7,7 @@ import { Subscription } from 'rxjs';
 import { CredencialesModalComponent } from '../credenciales-modal/credenciales-modal.component';
 import { HistorialModalComponent } from '../historial-modal/historial-modal.component';
 import { BuscarViajeComponent } from '../buscar-viaje/buscar-viaje.component';
-import { AjustesModalComponent } from '../ajustes-modal/ajustes-modal.component';  // Importa el componente de ajustes
+import { AjustesModalComponent } from '../ajustes-modal/ajustes-modal.component'; // Importa el componente de ajustes
 
 @Component({
   selector: 'app-interface',
@@ -24,7 +24,8 @@ export class InterfacePage implements OnInit, OnDestroy {
     private clienteService: ClienteService,
     private authService: AuthService,
     private modalController: ModalController,
-    private navCtrl: NavController
+    private navCtrl: NavController,
+    private alertController: AlertController // Añadido para mostrar alertas
   ) {}
 
   ngOnInit() {
@@ -105,11 +106,39 @@ export class InterfacePage implements OnInit, OnDestroy {
     }
   }
 
+ // Método para mostrar el alerta de confirmación para cerrar sesión
+async presentAlert() {
+  const alert = await this.alertController.create({
+    header: '¿Seguro que quieres salir?',
+    message: 'Estás a punto de cerrar sesión.',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        cssClass: 'secondary',
+        handler: () => {
+          console.log('El usuario ha cancelado');
+        }
+      },
+      {
+        text: 'Salir',
+        handler: () => {
+          this.logout();
+        }
+      }
+    ]
+  });
+
+  await alert.present();
+}
+
+
   // Método de cerrar sesión
   async logout() {
     await this.authService.logout();
     this.navCtrl.navigateRoot('/iniciarsesion'); // Redirige a la página de inicio de sesión
   }
+
   redirectToColocolo() {
     // Redirige a la URL deseada
     window.location.href = 'https://www.colocolo.cl/';

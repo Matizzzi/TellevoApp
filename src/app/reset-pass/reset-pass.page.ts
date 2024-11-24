@@ -34,4 +34,15 @@ export class ResetPassPage implements OnInit {
       duration: 4000
     }).then(toast => toast.present());
   }
+  handleButtonClick(email: string) {
+    // Agrega la clase de animación al botón
+    const button = document.getElementById('send-button');
+    if (button) {
+      button.classList.add('clicked');
+      setTimeout(() => button.classList.remove('clicked'), 200); // Remueve la clase después de la animación
+    }
+  
+    // Llama a la función original
+    this.resetPassword(email);
+  }
 }

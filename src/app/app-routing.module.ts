@@ -36,9 +36,14 @@ const routes: Routes = [
     loadChildren: () => import('./interface-conductor/interface-conductor.module').then(m => m.InterfaceConductorPageModule),
   },
   {
-    path: 'qr-scanner',
-    loadChildren: () => import('./qr-scanner/qr-scanner.module').then( m => m.QrScannerPageModule)
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
   },
+  {
+    path: 'tutorial',
+    loadChildren: () => import('./tutorial/tutorial.module').then( m => m.TutorialPageModule)
+  },
+
   
 
 

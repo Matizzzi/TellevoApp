@@ -1,20 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
 
-import { QrScannerPageRoutingModule } from './qr-scanner-routing.module';
-
-import { QrScannerPage } from './qr-scanner.page';
+import { ChatPageRoutingModule } from './chat-routing.module';
+import { ChatPage } from './chat.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QrScannerPageRoutingModule
+    ChatPageRoutingModule,
   ],
-  declarations: [QrScannerPage]
+  declarations: [ChatPage],
 })
-export class QrScannerPageModule {}
+export class ChatPageModule {}

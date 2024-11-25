@@ -318,4 +318,34 @@
       transform: translateY(0);
     }
   }
+  .time-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .time-circle {
+    width: 80px; /* Tamaño del círculo */
+    height: 80px;
+    border-radius: 50%; /* Hace el círculo perfecto */
+    background-color: #f1c40f; /* Fondo amarillo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px; /* Tamaño del texto */
+    font-weight: bold;
+    color: white; /* Color del texto */
+    animation: rotate 5s infinite linear; /* Animación de rotación */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra del círculo */
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   

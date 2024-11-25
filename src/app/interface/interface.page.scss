@@ -291,3 +291,58 @@ ion-modal {
 .modal-button:hover {
   --background: #555;
 }
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.time-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f1c40f;  // Color amarillo
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  animation: rotate 5s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* Estilo del botón circular con el signo de pregunta */
+.tutorial-button {
+  --background: #FFB800; /* Amarillo */
+  --color: #FFFFFF; /* Blanco */
+  --border-radius: 50%; /* Hace el botón circular */
+  --width: 60px;
+  --height: 60px;
+  --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; /* Para separar el botón de Calificar */
+}
+
+.tutorial-button ion-icon {
+  font-size: 30px; /* Tamaño del icono */
+}
+
+.tutorial-button:hover {
+  --background: #666666; /* Gris oscuro */
+  --color: #FFB800; /* Amarillo */
+  --box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-button:focus {
+  --background: #FFB800;
+  --color: #FFFFFF;
+  --box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}

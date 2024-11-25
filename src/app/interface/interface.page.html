@@ -22,11 +22,15 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="ion-padding bg-grey">
   <div class="bubble-background"></div>
   <div class="welcome-container">
     <h2 class="welcome-title">¡Hola, {{ userData?.name ?? 'Invitado' }}!</h2>
+
+    <!-- Aquí se muestra la hora -->
+    <div class="time-container">
+      <span class="time-circle">{{ currentTime }}</span>
+    </div>
 
     <!-- Botón para abrir el modal de Buscar Viaje -->
     <ion-button expand="full" class="start-button" (click)="openBuscarViajeModal()">Comenzar Viaje</ion-button>
@@ -36,6 +40,12 @@
       <ion-button expand="full" class="modal-button" (click)="openHistoryModal()">Historial</ion-button>
     </div>
     
+    <!-- Botón Tutorial (signo de pregunta) -->
+    <ion-button class="tutorial-button" (click)="goToTutorial()">
+      <ion-icon name="help-outline"></ion-icon> <!-- Signo de pregunta -->
+    </ion-button>
+
+    <!-- Promo Box -->
     <div class="promo-box">
       <h3>¡Califica la app!</h3>
       <p>Tu opinión es importante. ¡Déjanos tus comentarios!</p>
@@ -43,3 +53,4 @@
     </div>
   </div>
 </ion-content>
+

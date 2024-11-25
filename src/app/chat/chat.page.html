@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="chat-container">
+    <!-- Iterar sobre los mensajes -->
+    <div *ngFor="let message of messages" [class]="message.sender">
+      <div class="message">
+        <span>{{ message.text }}</span>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <!-- Campo de texto para escribir el mensaje -->
+    <ion-input
+      [(ngModel)]="newMessage"
+      placeholder="Escribe un mensaje..."
+      type="text"
+    ></ion-input>
+    <!-- Botón para enviar el mensaje -->
+    <ion-button (click)="sendMessage()">Enviar</ion-button>
+  </ion-toolbar>
+</ion-footer>

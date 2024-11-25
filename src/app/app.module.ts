@@ -19,7 +19,7 @@ import { HistorialModalComponent } from './historial-modal/historial-modal.compo
 import { ConductorComponent } from './conductor/conductor.component'; // Asegúrate de que la ruta sea correcta
 
 // Importa el módulo que contiene el componente QrScannerPage
-import { QrScannerPageModule } from './qr-scanner/qr-scanner.module';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +40,7 @@ import { QrScannerPageModule } from './qr-scanner/qr-scanner.module';
     AngularFireAuthModule,
     GoogleMapsModule,
     FormsModule,
-    QrScannerPageModule // Solo importa el módulo aquí
+// Solo importa el módulo aquí
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

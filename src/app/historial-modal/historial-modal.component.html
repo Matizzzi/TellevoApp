@@ -8,7 +8,6 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content class="bg-dark text-white">
   <div class="modal-content">
     <ion-list>
@@ -21,11 +20,18 @@
           <p>Precio: <span class="text-orange">${{ viaje.precio }}</span></p>
           <p>Lugar: {{ viaje.lugar }}</p>
         </ion-label>
-        <!-- Borrar viaje -->
+
+        <!-- Botón para borrar el historial -->
         <ion-button color="danger" (click)="cancelarViaje(viaje)">
           Borrar Historial
+        </ion-button>
+
+        <!-- Botón para ir al chat -->
+        <ion-button color="primary" (click)="irAlChat(viaje)">
+          Ir a chat
         </ion-button>
       </ion-item>
     </ion-list>
   </div>
 </ion-content>
+

@@ -1,0 +1,73 @@
+/* Aplicar fondo oscuro */
+ion-content {
+  --background: #1A1A1A; /* Negro */
+  color: #FFFFFF; /* Blanco */
+}
+
+/* Fondo de los Slides */
+.slide-content {
+  background-color: rgba(26, 26, 26, 1); /* Fondo negro */
+  color: #FFFFFF; /* Texto blanco */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+/* Estilo de la imagen */
+.slide-content img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+/* Estilo de los títulos */
+.slide-content h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FFB800; /* Amarillo */
+}
+
+/* Estilo de los párrafos */
+.slide-content p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Estilo del botón "Cerrar" */
+ion-button[color="dark"] {
+  background-color: rgba(0, 0, 0, 1); /* Negro */
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* Estilo del botón "Empezar" */
+.btn-start {
+  background-color: #FFB800; /* Amarillo */
+  color: #000000; /* Negro */
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+/* Estilo de las páginas del tutorial */
+ion-slides {
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Fondo de pie de página */
+ion-footer {
+  background-color: #000000; /* Terciario */
+  padding: 20px;
+}
+
+/* Diseño de fondo blanco en cada slide */
+.bg-white {
+  background-color: #FFFFFF; /* Blanco */
+}
+
+/* Fondo gris */
+.bg-grey {
+  background-color: #666666; /* Gris */
+}

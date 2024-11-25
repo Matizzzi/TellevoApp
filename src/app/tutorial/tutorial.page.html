@@ -1,0 +1,46 @@
+<ion-content>
+  <!-- Botón de Cerrar -->
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button color="dark" (click)="closeTutorial()">Cerrar</ion-button>
+      </ion-buttons>
+      <ion-title>Tutorial</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-slides pager="true" [options]="slideOpts">
+    <!-- Slide 1 -->
+    <ion-slide>
+      <div class="slide-content">
+        <img src="assets/icon/bienvenida.png" alt="Paso 1">
+        <h2>Bienvenido a la app</h2>
+        <p>Aprende a usar las funcionalidades principales de la app.</p>
+      </div>
+    </ion-slide>
+
+    <!-- Slide 2 -->
+    <ion-slide>
+      <div class="slide-content">
+        <img src="assets/icon/buscar.png" alt="Paso 2">
+        <h2>Buscar un Viaje</h2>
+        <p>Descubre cómo buscar viajes rápidamente en la app.</p>
+      </div>
+    </ion-slide>
+
+    <!-- Slide 3 -->
+    <ion-slide>
+      <div class="slide-content">
+        <img src="assets/icon/viaje.png" alt="Paso 3">
+        <h2>Realizar una Reserva</h2>
+        <p>Aprende a reservar tu viaje de forma sencilla.</p>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-footer>
+    <ion-button expand="full" (click)="goToHomePage()" class="btn-start">
+      Empezar
+    </ion-button>
+  </ion-footer>
+</ion-content>

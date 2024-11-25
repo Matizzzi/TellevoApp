@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import * as QRCode from 'qrcode';
 import { HistorialService } from '../historial.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-historial-modal',
@@ -15,7 +16,8 @@ export class HistorialModalComponent implements OnInit {
 
   constructor(
     private modalController: ModalController,
-    private historialService: HistorialService // Inyectar el servicio para acceder al historial
+    private historialService: HistorialService, // Inyectar el servicio para acceder al historial
+    private router: Router // Inyectar el router para navegación
   ) {}
 
   ngOnInit() {
@@ -45,7 +47,7 @@ export class HistorialModalComponent implements OnInit {
   // Función para cancelar un viaje
   cancelarViaje(viaje: any) {
     // Filtrar el viaje a eliminar del historial
-    this.viajesAceptados = this.viajesAceptados.filter(v => v.id !== viaje.id);
+    this.viajesAceptados = this.viajesAceptados.filter((v) => v.id !== viaje.id);
 
     // Actualizar el localStorage con el nuevo historial
     this.actualizarStorage();
@@ -62,5 +64,22 @@ export class HistorialModalComponent implements OnInit {
   // Cerrar el modal
   dismiss() {
     this.modalController.dismiss();
+  }
+
+  // Navegar a la página de chat con los datos del viaje
+  irAlChat(viaje: any) {
+    this.dismiss(); // Cerrar el modal antes de navegar
+    this.router.navigate(['/chat'], {
+      queryParams: {
+        nombre: viaje.nombre,
+        apellido: viaje.apellido,
+        modelo: viaje.modelo,
+        marca: viaje.marca,
+        patente: viaje.patente,
+        lugar: viaje.lugar,
+        capacidad: viaje.capacidad,
+        precio: viaje.precio,
+      },
+    });
   }
 }

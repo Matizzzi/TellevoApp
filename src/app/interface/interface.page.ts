@@ -17,6 +17,7 @@ import { AjustesModalComponent } from '../ajustes-modal/ajustes-modal.component'
 export class InterfacePage implements OnInit, OnDestroy {
   userData: User | null = null;
   userName: string = 'Invitado';
+  currentTime: string = '';
   private userSubscription!: Subscription;
 
   constructor(
@@ -30,6 +31,7 @@ export class InterfacePage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loadUserData();
+    this.updateTime();
   }
 
   ngOnDestroy() {
@@ -54,6 +56,15 @@ export class InterfacePage implements OnInit, OnDestroy {
     } else {
       console.error('No se pudo obtener el usuario actual.');
     }
+  }
+
+  // Método para actualizar la hora
+  updateTime() {
+    const date = new Date();
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const formattedTime = `${hours}:${minutes < 10 ? '0' + minutes : minutes}`;
+    this.currentTime = formattedTime;
   }
 
   // Método para abrir el modal de Credenciales
@@ -106,32 +117,31 @@ export class InterfacePage implements OnInit, OnDestroy {
     }
   }
 
- // Método para mostrar el alerta de confirmación para cerrar sesión
-async presentAlert() {
-  const alert = await this.alertController.create({
-    header: '¿Seguro que quieres salir?',
-    message: 'Estás a punto de cerrar sesión.',
-    buttons: [
-      {
-        text: 'Cancelar',
-        role: 'cancel',
-        cssClass: 'secondary',
-        handler: () => {
-          console.log('El usuario ha cancelado');
+  // Método para mostrar el alerta de confirmación para cerrar sesión
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: '¿Seguro que quieres salir?',
+      message: 'Estás a punto de cerrar sesión.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('El usuario ha cancelado');
+          }
+        },
+        {
+          text: 'Salir',
+          handler: () => {
+            this.logout();
+          }
         }
-      },
-      {
-        text: 'Salir',
-        handler: () => {
-          this.logout();
-        }
-      }
-    ]
-  });
+      ]
+    });
 
-  await alert.present();
-}
-
+    await alert.present();
+  }
 
   // Método de cerrar sesión
   async logout() {
@@ -140,7 +150,11 @@ async presentAlert() {
   }
 
   redirectToColocolo() {
-    // Redirige a la URL deseada
-    window.location.href = 'https://www.colocolo.cl/';
+    // Redirige a la nueva URL
+    window.location.href = 'https://matizzzi.github.io/FormularioPrueba/';
   }
+  goToTutorial() {
+    this.navCtrl.navigateForward('/tutorial'); // Asume que la ruta /tutorial existe en tu configuración de rutas
+  }
+  
 }

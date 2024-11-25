@@ -72,6 +72,7 @@
     opacity: 1;
   }
 }
+
 @keyframes scaleUp {
   from {
     transform: scale(0.8);
@@ -80,14 +81,101 @@
     transform: scale(1.2);
   }
 }
+
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
   }
   25%, 75% {
-    transform: translateX(-5px);
+    transform: translateX(-10px);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(10px);
   }
+}
+
+/* Ticket de aceptación (notificación) */
+.ticket-aceptacion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fadeIn 0.5s, fadeOut 0.5s 4.5s; /* Animación de entrada y salida */
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Botón de rechazar con animación de shake */
+.btn-reject {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ff4d4d; /* Rojo para el fondo */
+  border-radius: 8px;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+
+  ion-icon {
+    margin-right: 8px;
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.shake {
+    animation: shake 0.5s ease-in-out;
+  }
+}
+
+/* Agregar animación de shake */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/* Contenedor del spinner y mensaje de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.loading-container ion-spinner {
+  --width: 50px;
+  --height: 50px;
+}
+
+.loading-container p {
+  margin-top: 10px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
 }

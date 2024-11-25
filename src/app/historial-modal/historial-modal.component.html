@@ -10,35 +10,22 @@
 </ion-header>
 
 <ion-content class="bg-dark text-white">
-  <div class="container">
-    <ion-card *ngFor="let viaje of historial" class="card-animated">
-      <ion-card-header>
-        <ion-card-title class="text-orange">Viaje por tomar</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p><strong class="text-grey">Nombre:</strong> {{ viaje.nombre }} {{ viaje.apellido }}</p>
-        <p><strong class="text-grey">Modelo:</strong> {{ viaje.modelo }}</p>
-        <p><strong class="text-grey">Marca:</strong> {{ viaje.marca }}</p>
-        <p><strong class="text-grey">Patente:</strong> {{ viaje.patente }}</p>
-        <p><strong class="text-grey">Capacidad:</strong> {{ viaje.capacidad }} personas</p>
-        <p><strong class="text-grey">Precio:</strong> <span class="text-orange">${{ viaje.precio }}</span></p>
-        <p><strong class="text-grey">Lugar:</strong> {{ viaje.lugar }}</p>
-
-        <!-- Botón para cancelar el viaje -->
-        <ion-button color="danger" expand="full" (click)="cancelarViaje(viaje)" class="mt-2">
-          Cancelar Viaje
+  <div class="modal-content">
+    <ion-list>
+      <ion-item *ngFor="let viaje of viajesAceptados">
+        <ion-label>
+          <h2 class="text-orange">{{ viaje.nombre }} {{ viaje.apellido }}</h2>
+          <h3 class="text-grey">{{ viaje.modelo }} - {{ viaje.marca }}</h3>
+          <p class="text-grey">Patente: {{ viaje.patente }}</p>
+          <p>Capacidad: {{ viaje.capacidad }} personas</p>
+          <p>Precio: <span class="text-orange">${{ viaje.precio }}</span></p>
+          <p>Lugar: {{ viaje.lugar }}</p>
+        </ion-label>
+        <!-- Borrar viaje -->
+        <ion-button color="danger" (click)="cancelarViaje(viaje)">
+          Borrar Historial
         </ion-button>
-
-        <!-- Botón para generar el código QR -->
-        <ion-button expand="full" (click)="generarCodigoQR(viaje)" class="mt-2">
-          Obtener Código QR
-        </ion-button>
-
-        <!-- Mostrar el código QR generado solo para este viaje -->
-        <div *ngIf="qrCodes[viaje.id]">
-          <img [src]="qrCodes[viaje.id]" alt="Código QR" />
-        </div>
-      </ion-card-content>
-    </ion-card>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

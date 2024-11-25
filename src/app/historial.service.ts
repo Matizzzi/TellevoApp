@@ -4,43 +4,41 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class HistorialService {
-  private historial: any[] = [];
+  private viajesAceptados: any[] = []; // Almacena los viajes aceptados
 
   constructor() {
-    // Cargar el historial desde localStorage al iniciar el servicio
-    const historialGuardado = localStorage.getItem('historial');
-    this.historial = historialGuardado ? JSON.parse(historialGuardado) : [];
-  }
-
-  // Agregar un viaje al historial
-  agregarAlHistorial(viaje: any) {
-    // Verificar si ya hay un viaje pendiente
-    if (this.hayViajePendiente()) {
-      throw new Error('Ya tienes un viaje pendiente. Solo puedes tomar uno a la vez.');
+    // Cargar datos guardados en LocalStorage (si existen)
+    const storedViajes = localStorage.getItem('viajesAceptados');
+    if (storedViajes) {
+      this.viajesAceptados = JSON.parse(storedViajes);
     }
-    this.historial.push(viaje);
-    localStorage.setItem('historial', JSON.stringify(this.historial)); // Guardar en el localStorage
   }
 
-  // Obtener el historial
-  obtenerHistorial() {
-    return this.historial; // Retornar el historial almacenado
+  // Obtener el historial de viajes aceptados
+  getHistorial(): any[] {
+    const viajes = localStorage.getItem('viajesAceptados');
+    return viajes ? JSON.parse(viajes) : []; // Si no hay historial, retornamos un arreglo vacío
   }
 
-  // Actualizar el historial después de realizar una acción como cancelar un viaje
-  actualizarHistorial() {
-    localStorage.setItem('historial', JSON.stringify(this.historial)); // Guardar el historial actualizado en localStorage
+  // Agregar un nuevo viaje al historial
+  agregarViaje(viaje: any) {
+    const viajes = this.getHistorial();
+    viajes.push(viaje);
+    localStorage.setItem('viajesAceptados', JSON.stringify(viajes));
   }
 
-  // Eliminar un viaje del historial (por ejemplo, cuando se cancela un viaje)
-  eliminarViaje(id: string) {
-    this.historial = this.historial.filter(viaje => viaje.id !== id); // Eliminar el viaje con el id dado
-    this.actualizarHistorial(); // Actualizar el historial después de eliminar el viaje
+  // Eliminar un viaje del historial
+  eliminarViaje(viaje: any) {
+    // Filtrar el viaje a eliminar de la lista
+    this.viajesAceptados = this.viajesAceptados.filter(v => v.id !== viaje.id);
+    
+    // Actualizar el almacenamiento local después de la eliminación
+    localStorage.setItem('viajesAceptados', JSON.stringify(this.viajesAceptados));
   }
 
-  // Verificar si ya hay un viaje pendiente
-  hayViajePendiente(): boolean {
-    // Reemplazar 'cancelado' por el estado que estés usando para indicar que un viaje está pendiente
-    return this.historial.some(viaje => !viaje.cancelado);
+  // Eliminar todos los viajes del historial
+  borrarHistorial() {
+    this.viajesAceptados = [];
+    localStorage.removeItem('viajesAceptados');
   }
 }

@@ -22,22 +22,27 @@
           <p>Lugar: {{ viaje.lugar }}</p>
         </ion-label>
       
-        <!-- Animación al aceptar/rechazar -->
-        <div *ngIf="viaje.aceptado" class="success-animation">
-          <ion-icon name="checkmark-circle-outline" class="icon-success"></ion-icon>
-          <p class="text-success">¡Viaje aceptado!</p>
-        </div>
-      
-        <div *ngIf="viaje.rechazado" class="error-animation">
-          <ion-icon name="trash-bin-outline" class="icon-error"></ion-icon>
-          <p class="text-error">¡Viaje rechazado!</p>
-        </div>
-      
-        <ng-container *ngIf="!viaje.aceptado && !viaje.rechazado">
-          <ion-button color="success" (click)="accept(viaje)" class="btn-animated">Aceptar</ion-button>
-          <ion-button color="danger" (click)="reject(viaje)" class="btn-animated">Rechazar</ion-button>
+        <!-- Botón de aceptar -->
+        <ng-container *ngIf="!viaje.aceptado">
+          <ion-button color="success" (click)="accept(viaje)" class="btn-animated">
+            Aceptar
+          </ion-button>
         </ng-container>
+      
+        <!-- Botón de rechazar -->
+        <ng-container *ngIf="!viaje.aceptado">
+          <ion-button color="danger" (click)="reject(viaje)" class="btn-reject">
+            <ion-icon name="trash"></ion-icon> Rechazar
+          </ion-button>
+        </ng-container>
+      
+        <!-- Mostrar ticket si el viaje es aceptado -->
+        <div *ngIf="viaje.aceptado" class="ticket-accepted">
+          <p class="text-success">¡Viaje Aceptado! 🎟️</p>
+        </div>
       </ion-item>
+      
     </ion-list>
   </div>
 </ion-content>
+  
